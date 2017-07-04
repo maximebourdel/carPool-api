@@ -1,0 +1,8 @@
+# /app/config/routing_api.yml
+vehicule:
+    type: rest
+    resource: MainBundle\Controller\VehiculeController
+
+reservation:
+    type: rest
+    resource: MainBundle\Controller\ReservationController
