@@ -5,8 +5,8 @@ security:
         in_memory:
             memory:
                 users:
-                    gary:
-                        password: pass
+                    admin:
+                        password: admin
                         roles: 'ROLE_USER'
 
     encoders:
@@ -30,8 +30,8 @@ security:
                 username_parameter: username
                 password_parameter: password
 
-        api:
-            pattern:   ^/
+        admin:
+            pattern:   ^/admin
             stateless: true
             guard:
                 authenticators:
@@ -39,4 +39,4 @@ security:
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/admin,       roles: IS_AUTHENTICATED_FULLY }
