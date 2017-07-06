@@ -6,7 +6,17 @@ NelmioApiDocBundle:
 login_check:
     path: /login_check
 
-api:
+
+vehicule:
     type: rest
-    resource: "routing_api.yml"
+    resource: MainBundle\Controller\VehiculeController
+
+reservation:
+    type: rest
+    resource: MainBundle\Controller\ReservationController
+
+admin:
+    type: rest
+    resource: "routing_admin.yml"
+    prefix: /admin
     

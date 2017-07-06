@@ -17,10 +17,10 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
                 'SELECT  
                     cal.date
                     , sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) nb_resa
-                from MainBundle:Calendrier cal, MainBundle:Reservation res
-                group by cal.date
-                having sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) != 0
-                order by cal.date'
+                FROM MainBundle:Calendrier cal, MainBundle:Reservation res
+                GROUP BY cal.date
+                HAVING sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) != 0
+                ORDER BY cal.date'
             )
             ->getResult();
     }
@@ -33,12 +33,33 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
                     cal.date
 					, vehi.immatriculation
                     , sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) nb_resa
-                from MainBundle:Calendrier cal, MainBundle:Reservation res
-					left join res.vehicule vehi
-                group by cal.date , vehi.immatriculation
-                having sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) != 0
-                order by cal.date'
+                FROM MainBundle:Calendrier cal, MainBundle:Reservation res
+					LEFT JOIN res.vehicule vehi
+                GROUP BY cal.date , vehi.immatriculation
+                HAVING sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) != 0
+                ORDER BY cal.date'
             )->setMaxResults(9)
+            ->getResult();
+    }
+
+	/**
+	* Retourne les creneaux par vehicules pour une annee et un mois donne
+	**/
+    public function findCreneauxByAnneeMois(int $annee, int $mois)
+    {
+
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT 
+                    vehi.immatriculation
+                    ,cal.jour
+                    , sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) is_reserve
+                FROM MainBundle:Calendrier cal, MainBundle:Vehicule vehi
+					LEFT JOIN vehi.reservations res
+                WHERE cal.annee = '. $annee .' and cal.mois = '. $mois .' 
+                GROUP BY vehi.immatriculation, cal.jour 
+                ORDER BY vehi.immatriculation, cal.jour'
+            )
             ->getResult();
     }
 

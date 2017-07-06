@@ -73,9 +73,10 @@ class ReservationController extends FOSRestController implements ClassResourceIn
                     ->getRepository('MainBundle:Reservation')
                     ->findRequete();
     }
-    
+
+
     /**
-     * Retourne une Reservation individuelle
+     * Retourne des créneaux de réservation
      *
      * @Rest\View()
      * @param String $entry
@@ -84,11 +85,14 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      * @throws \Doctrine\ORM\NonUniqueResultException
      *
      */
-    public function getAction($entry)
+    public function postCreneauxbyanneemoisAction(Request $request)
     {
+        $jsonResponse = json_decode($request->getContent(), true);
+		//retourne la liste complète
+        
         return $this->getDoctrine()
                     ->getRepository('MainBundle:Reservation')
-                    ->searchBy($entry);
+                    ->findCreneauxByAnneeMois($jsonResponse['annee'],$jsonResponse['mois']);
     }
     
     /**
