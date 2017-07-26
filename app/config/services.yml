@@ -4,6 +4,16 @@ parameters:
     #parameter_name: value
 
 services:
+    app.webservice_user_provider:
+        class: MainBundle\Security\User\WebserviceUserProvider
+        arguments: ['@service_container']
+
+    acme_api.event.authentication_success_listener:
+        class: MainBundle\EventListener\AuthenticationSuccessListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+
     #service_name:
     #    class: AppBundle\Directory\ClassName
     #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+

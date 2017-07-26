@@ -2,15 +2,12 @@
 # http://symfony.com/doc/current/security.html
 security:
     providers:
-        in_memory:
-            memory:
-                users:
-                    admin:
-                        password: admin
-                        roles: 'ROLE_USER'
+        webservice:
+            id: app.webservice_user_provider
 
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        MainBundle\Security\User\WebserviceUser:
+            algorithm: plaintext
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -23,6 +20,7 @@ security:
             stateless: true
             anonymous: true
             form_login:
+                provider: webservice
                 check_path:               /login_check
                 success_handler:          lexik_jwt_authentication.handler.authentication_success
                 failure_handler:          lexik_jwt_authentication.handler.authentication_failure
