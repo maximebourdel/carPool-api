@@ -2,18 +2,13 @@ NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix: "/doc"
 
-
 login_check:
     path: /login_check
 
-
-vehicule:
+auth:
     type: rest
-    resource: MainBundle\Controller\VehiculeController
-
-reservation:
-    type: rest
-    resource: MainBundle\Controller\ReservationController
+    resource: "routing_auth.yml"
+    prefix: /auth
 
 admin:
     type: rest

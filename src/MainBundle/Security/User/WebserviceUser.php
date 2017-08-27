@@ -6,22 +6,19 @@ namespace MainBundle\Security\User;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 
-class WebserviceUser implements UserInterface, EquatableInterface
+use Lexik\Bundle\JWTAuthenticationBundle\Security\User\JWTUserInterface;
+
+class WebserviceUser implements EquatableInterface, JWTUserInterface
 {
     private $username;
     private $password;
     private $salt;
     private $roles;
 
-    public function __construct($username, $password, $salt, array $roles, $nom, $prenom)
+    public function __construct($username, array $roles=null )
     {
         $this->username = $username;
-        $this->password = $password;
-        $this->salt = $salt;
         $this->roles = $roles;
-        $this->prenom = $prenom;
-        $this->nom = $nom;
-		
     }
 
     public function getRoles()
@@ -29,11 +26,26 @@ class WebserviceUser implements UserInterface, EquatableInterface
         return $this->roles;
     }
 
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
     public function getPassword()
     {
         return $this->password;
     }
 
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }    
+
+    public function setSalt($salt)
+    {
+        return $this->salt = $salt;
+    }
+    
     public function getSalt()
     {
         return $this->salt;
@@ -44,11 +56,21 @@ class WebserviceUser implements UserInterface, EquatableInterface
         return $this->username;
     }
 
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }       
+    
     public function getNom()
     {
         return $this->nom;
     }
-
+    
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+    
     public function getPrenom()
     {
         return $this->prenom;
@@ -57,6 +79,17 @@ class WebserviceUser implements UserInterface, EquatableInterface
     public function eraseCredentials()
     {
     }
+
+    public static function createFromPayload($username, array $payload)
+    {
+        if (isset($payload['roles'])) {
+            return new self($username, $payload['roles']);
+        } else {
+            return new self($username);
+        }
+	
+    }
+    
 
     public function isEqualTo(UserInterface $user)
     {

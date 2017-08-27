@@ -2,8 +2,9 @@
 # http://symfony.com/doc/current/security.html
 security:
     providers:
-        webservice:
-            id: app.webservice_user_provider
+        jwt:
+            lexik_jwt:
+                class: MainBundle\Security\User\WebserviceUser
 
     encoders:
         MainBundle\Security\User\WebserviceUser:
@@ -19,8 +20,10 @@ security:
             pattern:  ^/login
             stateless: true
             anonymous: true
+            guard:
+                authenticators:
+                    - app.jwt_token_authenticator
             form_login:
-                provider: webservice
                 check_path:               /login_check
                 success_handler:          lexik_jwt_authentication.handler.authentication_success
                 failure_handler:          lexik_jwt_authentication.handler.authentication_failure
@@ -28,13 +31,12 @@ security:
                 username_parameter: username
                 password_parameter: password
 
-        admin:
-            pattern:   ^/admin
-            stateless: true
+        auth:
+            pattern:   ^/auth
             guard:
                 authenticators:
-                    - lexik_jwt_authentication.jwt_token_authenticator
+                    - lexik_jwt_authentication.security.guard.jwt_token_authenticator
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/auth,  roles: IS_AUTHENTICATED_FULLY }

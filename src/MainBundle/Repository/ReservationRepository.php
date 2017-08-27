@@ -25,6 +25,20 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
     }
 
+    public function findMyReservations($email)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT res
+                FROM MainBundle:Reservation res
+                WHERE 
+                    res.email = \''. $email .'\'
+                    AND res.statut != \'Annulée\' 
+                '
+            )
+            ->getResult();
+    }
+
     public function findRequete()
     {
         return $this->getEntityManager()
