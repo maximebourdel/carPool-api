@@ -31,6 +31,13 @@ class Reservation
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $vehicule;    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
     
     /**
      * @var string
@@ -59,6 +66,13 @@ class Reservation
      * @ORM\Column(name="date_fin", type="datetime")
      */
     private $dateFin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="statut", type="string", length=100)
+     */
+    private $statut;
 
 
     /**
@@ -94,7 +108,31 @@ class Reservation
     {
         return $this->vehicule;
     }
-    
+ 
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Reservation
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+   
     /**
      * Set nom
      *
@@ -191,5 +229,29 @@ class Reservation
         return $this->dateFin;
     }
     
+    /**
+     * Set statut
+     *
+     * @param string $statut
+     *
+     * @return Reservation
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return string
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
 }
 

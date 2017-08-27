@@ -39,6 +39,49 @@ class ReservationController extends FOSRestController implements ClassResourceIn
                     ->getRepository('MainBundle:Reservation')
                     ->findAll();
     }
+
+    /**
+     * Retourne une liste d'Reservation pour un simple utilisateur
+     *
+     * @Rest\View()
+     * @return mixed
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     */
+    public function postMyListAction(Request $request)
+    {
+        $email = $request->getContent();
+
+        //retourne la liste complète
+        return $this->getDoctrine()
+                    ->getRepository('MainBundle:Reservation')
+                    ->findMyReservations($email);
+    }
+
+    /**
+     * Change le statut d'une réservation
+     *
+     * @Rest\View()
+     * @return mixed
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     */
+    public function putStatutAction(Request $request)
+    {
+		$em = $this->getDoctrine()->getEntityManager();
+
+        $jsonResponse = json_decode($request->getContent(), true);
+
+		$reservation = $this->getDoctrine()->getRepository('MainBundle:Reservation')->find($jsonResponse['id']);
+        
+		$updateReservation = $reservation->setStatut($jsonResponse['statut']);
+        
+        $em->flush();
+        
+        return $updateReservation ;
+    }
     
     /**
      * Retourne une liste de Reservation
