@@ -64,25 +64,11 @@ class Vehicule
     private $nomResponsable;
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(name="disponible", type="boolean")
-     */
-    private $disponible;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="marque", type="string", length=100)
      */
     private $marque;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom_affectation", type="string", length=255, nullable=true)
-     */
-    private $nomAffectation;
 
     /**
      * @var int
@@ -97,13 +83,6 @@ class Vehicule
      * @ORM\Column(name="derniere_revision", type="string", length=100)
      */
     private $derniereRevision;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="temps_reservation", type="string", length=100)
-     */
-    private $tempsReservation;
     
     /**
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Reservation", mappedBy="vehicule")
@@ -265,30 +244,6 @@ class Vehicule
     }
 
     /**
-     * Set disponible
-     *
-     * @param boolean $disponible
-     *
-     * @return Vehicule
-     */
-    public function setDisponible($disponible)
-    {
-        $this->disponible = $disponible;
-
-        return $this;
-    }
-
-    /**
-     * Get disponible
-     *
-     * @return bool
-     */
-    public function getDisponible()
-    {
-        return $this->disponible;
-    }
-
-    /**
      * Set marque
      *
      * @param string $marque
@@ -310,30 +265,6 @@ class Vehicule
     public function getMarque()
     {
         return $this->marque;
-    }
-
-    /**
-     * Set nomAffectation
-     *
-     * @param string $nomAffectation
-     *
-     * @return Vehicule
-     */
-    public function setNomAffectation($nomAffectation)
-    {
-        $this->nomAffectation = $nomAffectation;
-
-        return $this;
-    }
-
-    /**
-     * Get nomAffectation
-     *
-     * @return string
-     */
-    public function getNomAffectation()
-    {
-        return $this->nomAffectation;
     }
 
     /**
@@ -382,39 +313,14 @@ class Vehicule
     public function getDerniereRevision()
     {
         return $this->derniereRevision;
-    }
-
-    /**
-     * Set tempsReservation
-     *
-     * @param string $tempsReservation
-     *
-     * @return Vehicule
-     */
-    public function setTempsReservation($tempsReservation)
-    {
-        $this->tempsReservation = $tempsReservation;
-
-        return $this;
-    }
-
-    /**
-     * Get tempsReservation
-     *
-     * @return string
-     */
-    public function getTempsReservation()
-    {
-        return $this->tempsReservation;
-    }
-    
+    }    
     
     /**
      * Ajouter une nouvelle Reservation
      * 
      * @param \MainBundle\Entity\Reservation $reservation
      */
-    public function addPlayer(\MainBundle\Entity\Reservation $reservation)	{
+    public function addVehicule(\MainBundle\Entity\Reservation $reservation)	{
         $this->reservations[] = $reservation;
     }
 
@@ -423,7 +329,7 @@ class Vehicule
      * 
      * @param \MainBundle\Entity\Reservation $reservation
      */
-    public function removePlayer(\MainBundle\Entity\Reservation $reservation)	{
+    public function removeVehicule(\MainBundle\Entity\Reservation $reservation)	{
         $this->reservations->removeElement($reservation);
     }
     
