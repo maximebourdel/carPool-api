@@ -35,16 +35,16 @@ class VehiculeController extends FOSRestController implements ClassResourceInter
      * Retourne un Vehicule individuel
      *
      * @Rest\View()
-     * @param String $entry
+     * @param String $id identifiant du véhicule
      * @return mixed
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function getAction($entry)
+    public function getAction($id)
     {
         return $this->getDoctrine()
                     ->getRepository('MainBundle:Vehicule')
-                    ->searchBy($entry);
+                    ->find($id);
     }
     
     
