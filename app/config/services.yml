@@ -16,3 +16,9 @@ services:
     app.jwt_token_authenticator:
         class: MainBundle\Security\Guard\JWTTokenAuthenticator
         parent: lexik_jwt_authentication.security.guard.jwt_token_authenticator
+
+    acme_api.event.jwt_created_listener:
+        class: MainBundle\EventListener\JWTCreatedListener
+        arguments: [ '@request_stack' ]
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }            
