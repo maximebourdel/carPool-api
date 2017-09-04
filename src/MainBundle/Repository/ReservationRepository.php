@@ -69,8 +69,9 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
                     ,cal.jour
                     , sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) is_reserve
                 FROM MainBundle:Calendrier cal, MainBundle:Vehicule vehi
-					LEFT JOIN vehi.reservations res
-                WHERE cal.annee = '. $annee .' and cal.mois = '. $mois .' 
+					LEFT JOIN vehi.reservations res 
+                                            WITH res.statut != \'Annulée\' 
+                WHERE cal.annee = '. $annee .' AND cal.mois = '. $mois .' 
                 GROUP BY vehi.immatriculation, cal.jour 
                 ORDER BY vehi.immatriculation, cal.jour'
             )

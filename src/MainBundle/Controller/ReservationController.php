@@ -70,13 +70,13 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      */
     public function putStatutAction(Request $request)
     {
-		$em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getEntityManager();
 
         $jsonResponse = json_decode($request->getContent(), true);
 
-		$reservation = $this->getDoctrine()->getRepository('MainBundle:Reservation')->find($jsonResponse['id']);
+        $reservation = $this->getDoctrine()->getRepository('MainBundle:Reservation')->find($jsonResponse['id']);
         
-		$updateReservation = $reservation->setStatut($jsonResponse['statut']);
+        $updateReservation = $reservation->setStatut($jsonResponse['statut']);
         
         $em->flush();
         
@@ -122,7 +122,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      * Retourne des créneaux de réservation
      *
      * @Rest\View()
-     * @param String $entry
+     * @param String $request
      * @return mixed
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
@@ -176,6 +176,23 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         $em = $this->getDoctrine()->getEntityManager();
         $em->persist($newReservation);
         $em->flush();
+        
+        $message = (new \Swift_Message('Demande de reservation de '. $newReservation->getEmail()))
+            ->setFrom('maxime.bourdel@businessdecision.com')
+            ->setTo('maxime.bourdel@businessdecision.com')
+            ->setBody(
+                $this->renderView(
+                    // app/Resources/views/Emails/registration.html.twig
+                    'Emails/demande_reservation.html.twig',
+                    array('reservation' => $newReservation)
+                ),
+                'text/html'
+            )
+            
+        ;
+        
+        $this->get('mailer')->send($message);
+        
         
         //On renvoie la nouvelle reservation
         return json_encode($newReservation);
