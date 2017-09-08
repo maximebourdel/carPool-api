@@ -22,3 +22,7 @@ services:
         arguments: [ '@request_stack' ]
         tags:
             - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }            
+
+    mail_manager:
+        class:     MainBundle\Service\Mail\MailManager
+        arguments: ["@mailer", "@twig"]

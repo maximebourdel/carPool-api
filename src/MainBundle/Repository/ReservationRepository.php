@@ -45,10 +45,10 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
             ->createQuery(
                 'SELECT 
                     cal.date
-					, vehi.immatriculation
+                    , vehi.immatriculation
                     , sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) nb_resa
                 FROM MainBundle:Calendrier cal, MainBundle:Reservation res
-					LEFT JOIN res.vehicule vehi
+                    LEFT JOIN res.vehicule vehi
                 GROUP BY cal.date , vehi.immatriculation
                 HAVING sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) != 0
                 ORDER BY cal.date'
@@ -69,8 +69,8 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
                     ,cal.jour
                     , sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) is_reserve
                 FROM MainBundle:Calendrier cal, MainBundle:Vehicule vehi
-					LEFT JOIN vehi.reservations res 
-                                            WITH res.statut != \'Annulée\' 
+                    LEFT JOIN vehi.reservations res 
+                        WITH res.statut != \'Annulée\' 
                 WHERE cal.annee = '. $annee .' AND cal.mois = '. $mois .' 
                 GROUP BY vehi.immatriculation, cal.jour 
                 ORDER BY vehi.immatriculation, cal.jour'

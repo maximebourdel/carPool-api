@@ -12,4 +12,8 @@ sudo apt-get install php-curl
 décommenter dans php.ini lla ligne
 ;extension=php_curl.dll
 
+sudo apt-get install postfix
+
+
+
 

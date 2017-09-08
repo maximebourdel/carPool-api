@@ -12,6 +12,8 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 use MainBundle\Entity\Reservation;
 
+use MainBundle\Service\Mailer\Mailer;
+
 use MainBundle\Service\BoardNormalizer;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
@@ -79,6 +81,22 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         $updateReservation = $reservation->setStatut($jsonResponse['statut']);
         
         $em->flush();
+        
+        /*if($jsonResponse['statut'] == '') {
+            $message = (new \Swift_Message('Annulation réservation de '. $newReservation->getEmail()))
+                ->setFrom('maxime.bourdel@businessdecision.com')
+                ->setTo('maxime.bourdel@businessdecision.com')
+                ->setBody(
+                    $this->renderView(
+                        // app/Resources/views/Emails/registration.html.twig
+                       'Emails/demande_annulation.html.twig',
+                        array('reservation' => $newReservation)
+                    ),
+                    'text/html'
+                );
+        }
+        $this->get('mailer')->send($message);*/
+        
         
         return $updateReservation ;
     }
@@ -188,11 +206,17 @@ class ReservationController extends FOSRestController implements ClassResourceIn
                 ),
                 'text/html'
             )
-            
+        //Envoi du mail en spool
+        //Mailer::sendMailDemandeReservation($this, $newReservation);
+             
         ;
         
         $this->get('mailer')->send($message);
         
+        
+        
+        //Envoi du mail en spool
+        //Mailer::sendMailDemandeReservation($this, $newReservation);
         
         //On renvoie la nouvelle reservation
         return json_encode($newReservation);
