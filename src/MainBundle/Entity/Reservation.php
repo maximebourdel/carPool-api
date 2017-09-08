@@ -74,6 +74,19 @@ class Reservation
      */
     private $statut;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_creation", type="datetime")
+     */
+    private $dateCreation;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_der_maj", type="datetime")
+     */
+    private $dateDerMaj;
 
     /**
      * Get id
@@ -252,6 +265,54 @@ class Reservation
     {
         return $this->statut;
     }
+    
+    /**
+     * Set dateCreation
+     *
+     * @param \DateTime $dateCreation
+     *
+     * @return Reservation
+     */
+    public function setDateCreation($dateCreation)
+    {
+        $this->dateCreation = $dateCreation;
 
+        return $this;
+    }
+
+    /**
+     * Get dateCreation
+     *
+     * @return \DateTime
+     */
+    public function getDateCreation()
+    {
+        return $this->dateCreation;
+    }
+
+        /**
+     * Set dateDerMaj
+     *
+     * @param \DateTime $dateDerMaj
+     *
+     * @return Reservation
+     */
+    public function setDateDerMaj($dateDerMaj)
+    {
+        $this->dateDerMaj = $dateDerMaj;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDerMaj
+     *
+     * @return \DateTime
+     */
+    public function getDateDerMaj()
+    {
+        return $this->dateDerMaj;
+    }
+    
 }
 

@@ -78,6 +78,8 @@ class ReservationController extends FOSRestController implements ClassResourceIn
 
         $reservation = $this->getDoctrine()->getRepository('MainBundle:Reservation')->find($jsonResponse['id']);
         
+        $reservation->setDateDerMaj(new \DateTime());
+        
         $updateReservation = $reservation->setStatut($jsonResponse['statut']);
         
         $em->flush();
@@ -190,6 +192,9 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         //On l'affecte a l'objet Reservation que l'on vient de creer
         $newReservation->setVehicule($vehiculeInDB);
         
+        $newReservation->setDateCreation(new \DateTime());
+        $newReservation->setDateDerMaj(new \DateTime());
+        
         //On insere puis on commit
         $em = $this->getDoctrine()->getEntityManager();
         $em->persist($newReservation);
@@ -205,15 +210,12 @@ class ReservationController extends FOSRestController implements ClassResourceIn
                     array('reservation' => $newReservation)
                 ),
                 'text/html'
-            )
+            );
+        
         //Envoi du mail en spool
-        //Mailer::sendMailDemandeReservation($this, $newReservation);
-             
-        ;
+        //Mailer::sendMailDemandeReservation($this, $newReservation); 
         
         $this->get('mailer')->send($message);
-        
-        
         
         //Envoi du mail en spool
         //Mailer::sendMailDemandeReservation($this, $newReservation);

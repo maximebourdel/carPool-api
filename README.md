@@ -17,6 +17,6 @@ décommenter dans php.ini lla ligne
 
 php /var/www/html/carPool/api/bin/console swiftmailer:spool:send --env=prod
 
-
-
+mkdir app/spool
+chmod 777 -R app/spool
 
