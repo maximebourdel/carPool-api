@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4979bd7b810ab512cff4b458fb881b6",
+    "content-hash": "2d5c54d1af383e1c3ec00b09f8391fc6",
     "packages": [
         {
             "name": "beberlei/DoctrineExtensions",
@@ -902,12 +902,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "42f4bdb744b98376889999846eaef9089398e28c"
+                "reference": "d4bd99f7f0bcf8d8e765d70186bdfa4f42ea9ea2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/42f4bdb744b98376889999846eaef9089398e28c",
-                "reference": "42f4bdb744b98376889999846eaef9089398e28c",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/d4bd99f7f0bcf8d8e765d70186bdfa4f42ea9ea2",
+                "reference": "d4bd99f7f0bcf8d8e765d70186bdfa4f42ea9ea2",
                 "shasum": ""
             },
             "require": {
@@ -996,7 +996,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2017-08-08 11:01:19"
+            "time": "2017-08-31 21:35:13"
         },
         {
             "name": "fzaninotto/faker",
