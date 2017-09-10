@@ -84,21 +84,22 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         
         $em->flush();
         
-        /*if($jsonResponse['statut'] == '') {
-            $message = (new \Swift_Message('Annulation réservation de '. $newReservation->getEmail()))
-                ->setFrom('maxime.bourdel@businessdecision.com')
-                ->setTo('maxime.bourdel@businessdecision.com')
-                ->setBody(
-                    $this->renderView(
-                        // app/Resources/views/Emails/registration.html.twig
-                       'Emails/demande_annulation.html.twig',
-                        array('reservation' => $newReservation)
-                    ),
-                    'text/html'
-                );
-        }
-        $this->get('mailer')->send($message);*/
+        $message = (new \Swift_Message('Changement sur la réservation de  '. $reservation->getEmail()))
+            ->setFrom('maxime.bourdel@businessdecision.com')
+            ->setTo('maxime.bourdel@businessdecision.com')
+            ->setBody(
+                $this->renderView(
+                    // app/Resources/views/Emails/registration.html.twig
+                    'Emails/changement_statut.html.twig',
+                    array('reservation' => $reservation)
+                ),
+                'text/html'
+            );
         
+        //Envoi du mail en spool
+        //Mailer::sendMailDemandeReservation($this, $newReservation); 
+        
+        $this->get('mailer')->send($message);
         
         return $updateReservation ;
     }
@@ -119,24 +120,6 @@ class ReservationController extends FOSRestController implements ClassResourceIn
                     ->getRepository('MainBundle:Reservation')
                     ->findSumReservationsDayByDay();
     }
-
-    /**
-     * Retourne une liste de Reservation
-     *
-     * @Rest\View()
-     * @return mixed
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     *
-     */
-    public function getRequeteAction()
-    {
-        //retourne la liste complète
-        return $this->getDoctrine()
-                    ->getRepository('MainBundle:Reservation')
-                    ->findRequete();
-    }
-
 
     /**
      * Retourne des créneaux de réservation

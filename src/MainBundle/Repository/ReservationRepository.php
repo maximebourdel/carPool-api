@@ -34,31 +34,14 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
                 WHERE 
                     res.email = \''. $email .'\'
                     AND res.statut != \'Annulée\' 
-                '
+                ORDER BY res.dateFin DESC'
             )
             ->getResult();
     }
 
-    public function findRequete()
-    {
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT 
-                    cal.date
-                    , vehi.immatriculation
-                    , sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) nb_resa
-                FROM MainBundle:Calendrier cal, MainBundle:Reservation res
-                    LEFT JOIN res.vehicule vehi
-                GROUP BY cal.date , vehi.immatriculation
-                HAVING sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) != 0
-                ORDER BY cal.date'
-            )->setMaxResults(9)
-            ->getResult();
-    }
-
-	/**
-	* Retourne les creneaux par vehicules pour une annee et un mois donne
-	**/
+    /**
+     * Retourne les creneaux par vehicules pour une annee et un mois donne
+    **/
     public function findCreneauxByAnneeMois(int $annee, int $mois)
     {
 

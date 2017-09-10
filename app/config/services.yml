@@ -16,6 +16,8 @@ services:
     app.jwt_token_authenticator:
         class: MainBundle\Security\Guard\JWTTokenAuthenticator
         parent: lexik_jwt_authentication.security.guard.jwt_token_authenticator
+        calls:
+            - [setDoctrine, ["@doctrine.orm.entity_manager"]]
 
     acme_api.event.jwt_created_listener:
         class: MainBundle\EventListener\JWTCreatedListener

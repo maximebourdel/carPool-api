@@ -10,7 +10,7 @@
 {% block contentTopInner %}
     <h1>Demande de réservation de {{ reservation.nom }} {{ reservation.prenom }}</h1>
     <p class="lead">
-        L'adresse {{ reservation.email }} a effectué une reservation 
+        L'adresse {{ reservation.email }} a effectué une reservation le {{ reservation.dateCreation|date("d/m/Y H:i:s") }}.
         concernant le véhicule :
         {{ reservation.vehicule.immatriculation }} - {{ reservation.vehicule.marque }}.
     </p>

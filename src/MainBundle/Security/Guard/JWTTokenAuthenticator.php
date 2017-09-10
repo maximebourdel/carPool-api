@@ -2,6 +2,8 @@
 
 namespace MainBundle\Security\Guard;
 
+use MainBundle\Entity\Admin;
+
 use Lexik\Bundle\JWTAuthenticationBundle\Security\Guard\JWTTokenAuthenticator as BaseAuthenticator;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
@@ -11,6 +13,15 @@ use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 
 class JWTTokenAuthenticator extends BaseAuthenticator
 {
+    private $doctrine;
+    
+    /**
+     * Injecte doctrine via les services
+     * @param type $doctrine
+     */
+    public function setDoctrine($doctrine){
+        $this->doctrine = $doctrine;
+    }
     
     /**
      * {@inheritdoc}
@@ -54,10 +65,21 @@ class JWTTokenAuthenticator extends BaseAuthenticator
         $json_response = $this->callKayooAPI($values);
 
         if( $json_response['error'] == '0'){
-                $user->setRoles(['ROLE_USER']);
                 $user->setPassword($credentials['password']);
                 $user->setNom($json_response['usr_info']['last_name']);
                 $user->setPrenom($json_response['usr_info']['first_name']);
+                
+                //On recherche si il y a un admin de répertorié
+                $admin = $this->doctrine->getRepository('MainBundle:Admin')
+                            ->findOneByEmail($user->getUsername());
+                
+                //Si il est dans la base c'est un admin sinon alors USER
+                if($admin != null ){
+                    $user->setRoles(['ROLE_ADMIN']);
+                } else {
+                    $user->setRoles(['ROLE_USER']);
+                }
+                
                 return true;
         }
         
