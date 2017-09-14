@@ -10,7 +10,7 @@ namespace MainBundle\Repository;
  */
 class VehiculeRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findVehiculeDispo($dateDebut, $dateFin)
+    public function findVehiculeDispo($dateDebut, $dateFin, $ville)
     {
         return $this->getEntityManager()
             ->createQuery(
@@ -33,7 +33,8 @@ class VehiculeRepository extends \Doctrine\ORM\EntityRepository
                             OR res.dateFin between DATE(\''. $dateDebut .'\') and DATE(\''. $dateFin .'\') 
                         )
                     GROUP BY vehi.id
-                )
+                ) 
+                AND vehicul.ville =\''. $ville .'\' 
                 ORDER BY vehicul.kilometrage ASC'
             )->setMaxResults(1)
             ->getOneOrNullResult();

@@ -1,23 +1,29 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/security.html
 security:
+    
+    #Le provider utilisé est celui de lexik_jwt avec WebserviceUser
     providers:
         jwt:
             lexik_jwt:
                 class: MainBundle\Security\User\WebserviceUser
 
+    #L'encoder est en plaintext pour Kayoo
     encoders:
         MainBundle\Security\User\WebserviceUser:
             algorithm: plaintext
 
-
-
+    #Définition des roles
+    role_hierarchy:
+        ROLE_ADMIN:    ROLE_USER
+        
+    #Permet d'établir les url auquel on a accès ou non
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
+        #Pour l'authentification
         login:
             pattern:  ^/login
             stateless: true
@@ -32,13 +38,21 @@ security:
                 require_previous_session: false
                 username_parameter: username
                 password_parameter: password
-
+        #Pour les users authentifiés
         auth:
             pattern:   ^/auth
             guard:
                 authenticators:
                     - lexik_jwt_authentication.security.guard.jwt_token_authenticator
-
+        #Pour les admins 
+        admin:
+            pattern:   ^/admin
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.security.guard.jwt_token_authenticator
+    
+    #Définition des droits pour les url
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/auth,  roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/auth,   roles: ROLE_USER }
+        - { path: ^/admin,  roles: ROLE_ADMIN }

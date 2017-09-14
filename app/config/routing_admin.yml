@@ -1,2 +1,9 @@
 # /app/config/routing_api.yml
 
+vehicule_admin:
+    type: rest
+    resource: MainBundle\Controller\VehiculeAdminController
+
+reservation_admin:
+    type: rest
+    resource: MainBundle\Controller\ReservationAdminController

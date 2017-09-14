@@ -23,6 +23,7 @@ class JWTCreatedListener
     }
 
     /**
+     * Rencoie les différents payloads pour le token JWT
      * @param JWTCreatedEvent $event
      *
      * @return void
@@ -36,6 +37,5 @@ class JWTCreatedListener
         $payload['prenom'] = $user->getPrenom();
 
         $event->setData($payload);
-
     }
 }

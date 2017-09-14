@@ -12,35 +12,20 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 use MainBundle\Entity\Reservation;
 
-use MainBundle\Service\Mailer\Mailer;
+use MainBundle\Service\Mailer\MailManager;
 
 use MainBundle\Service\BoardNormalizer;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
 
 /**
- * Class ReservationController
+ * Controller pour les réservations
  * @package MainBundle\Controller
+ * @author Maxime Bourdel
  * 
  */
 class ReservationController extends FOSRestController implements ClassResourceInterface
 {
-    /**
-     * Retourne une liste d'Reservation
-     *
-     * @Rest\View()
-     * @return mixed
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     *
-     */
-    public function getAllAction()
-    {
-        //retourne la liste complète
-        return $this->getDoctrine()
-                    ->getRepository('MainBundle:Reservation')
-                    ->findAll();
-    }
 
     /**
      * Retourne une liste d'Reservation pour un simple utilisateur
@@ -84,22 +69,9 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         
         $em->flush();
         
-        $message = (new \Swift_Message('Changement sur la réservation de  '. $reservation->getEmail()))
-            ->setFrom('maxime.bourdel@businessdecision.com')
-            ->setTo('maxime.bourdel@businessdecision.com')
-            ->setBody(
-                $this->renderView(
-                    // app/Resources/views/Emails/registration.html.twig
-                    'Emails/changement_statut.html.twig',
-                    array('reservation' => $reservation)
-                ),
-                'text/html'
-            );
-        
         //Envoi du mail en spool
-        //Mailer::sendMailDemandeReservation($this, $newReservation); 
-        
-        $this->get('mailer')->send($message);
+        $mailManager = new MailManager($this->container);
+        $mailManager->sendMailChangementStatutReservation($reservation); 
         
         return $updateReservation ;
     }
@@ -183,25 +155,9 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         $em->persist($newReservation);
         $em->flush();
         
-        $message = (new \Swift_Message('Demande de reservation de '. $newReservation->getEmail()))
-            ->setFrom('maxime.bourdel@businessdecision.com')
-            ->setTo('maxime.bourdel@businessdecision.com')
-            ->setBody(
-                $this->renderView(
-                    // app/Resources/views/Emails/registration.html.twig
-                    'Emails/demande_reservation.html.twig',
-                    array('reservation' => $newReservation)
-                ),
-                'text/html'
-            );
-        
         //Envoi du mail en spool
-        //Mailer::sendMailDemandeReservation($this, $newReservation); 
-        
-        $this->get('mailer')->send($message);
-        
-        //Envoi du mail en spool
-        //Mailer::sendMailDemandeReservation($this, $newReservation);
+        $mailManager = new MailManager($this->container);
+        $mailManager->sendMailDemandeReservation($newReservation); 
         
         //On renvoie la nouvelle reservation
         return json_encode($newReservation);

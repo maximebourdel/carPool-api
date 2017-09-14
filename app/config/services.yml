@@ -4,27 +4,17 @@ parameters:
     #parameter_name: value
 
 services:
-    app.webservice_user_provider:
-        class: MainBundle\Security\User\WebserviceUserProvider
-        arguments: ['@service_container']
 
-    acme_api.event.authentication_success_listener:
-        class: MainBundle\EventListener\AuthenticationSuccessListener
-        tags:
-            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
-
+    #Utilisé pour le GUARD et s'assurer que le token est OK
     app.jwt_token_authenticator:
         class: MainBundle\Security\Guard\JWTTokenAuthenticator
         parent: lexik_jwt_authentication.security.guard.jwt_token_authenticator
         calls:
             - [setDoctrine, ["@doctrine.orm.entity_manager"]]
 
+    #Gère le payload (ce qui sera inclu dans le token JWT)
     acme_api.event.jwt_created_listener:
         class: MainBundle\EventListener\JWTCreatedListener
         arguments: [ '@request_stack' ]
         tags:
-            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }            
-
-    mail_manager:
-        class:     MainBundle\Service\Mail\MailManager
-        arguments: ["@mailer", "@twig"]
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }

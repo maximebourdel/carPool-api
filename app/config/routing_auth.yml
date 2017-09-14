@@ -1,3 +1,5 @@
+# /app/config/routing_auth.yml
+
 vehicule:
     type: rest
     resource: MainBundle\Controller\VehiculeController

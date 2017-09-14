@@ -1,4 +1,4 @@
-{# app/Resources/views/Emails/registration.html.twig #}
+{# app/Resources/views/Emails/changement_statut.html.twig #}
 
 {# On étend notre layout #} 
 {% extends "::base.html.twig" %} 
@@ -8,19 +8,21 @@
 
 
 {% block contentTopInner %}
-    <h1>Modification de la réservation de {{ reservation.nom }} {{ reservation.prenom }}</h1>
+    <h2>Modification de la réservation de {{ reservation.nom }} {{ reservation.prenom }}</h2>
     <p class="lead">
-        L'adresse {{ reservation.email }} a modifié sa reservation le {{ reservation.dateDerMaj|date("d/m/Y H:i") }}.
+        L'adresse {{ reservation.email }} 
+        <br />
+        a modifié sa reservation le {{ reservation.dateDerMaj|date("d/m/Y H:i") }}.
+        <br /><br />
         concernant le véhicule :
         {{ reservation.vehicule.immatriculation }} - {{ reservation.vehicule.marque }}.
+        <br />
+        La reservation est maintenant au statut {{ reservation.statut }}
     </p>
 {% endblock %}
 
 
 {% block contentPanelInner %}
-    <p>Merci de lui donner une réponse rapidement en allant sur  
-        <a href="http://5.39.77.232/carPool/front-office/dist/">le site de Carpool</a>.
-    </p>
 {% endblock %}
 
 

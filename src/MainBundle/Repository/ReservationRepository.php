@@ -34,7 +34,7 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
                 WHERE 
                     res.email = \''. $email .'\'
                     AND res.statut != \'Annulée\' 
-                ORDER BY res.dateFin DESC'
+                ORDER BY res.dateCreation DESC'
             )
             ->getResult();
     }
