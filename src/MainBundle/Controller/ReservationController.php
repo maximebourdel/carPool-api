@@ -87,7 +87,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      */
     public function getSumdaybydayAction()
     {
-        //retourne la liste complète
+        //Retourne la liste complète
         return $this->getDoctrine()
                     ->getRepository('MainBundle:Reservation')
                     ->findSumReservationsDayByDay();
@@ -106,8 +106,8 @@ class ReservationController extends FOSRestController implements ClassResourceIn
     public function postCreneauxbyanneemoisAction(Request $request)
     {
         $jsonResponse = json_decode($request->getContent(), true);
-		//retourne la liste complète
         
+        //Retourne la liste complète
         return $this->getDoctrine()
                     ->getRepository('MainBundle:Reservation')
                     ->findCreneauxByAnneeMois($jsonResponse['annee'],$jsonResponse['mois']);
