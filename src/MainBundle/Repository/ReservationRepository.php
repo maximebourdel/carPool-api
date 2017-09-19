@@ -48,6 +48,7 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
            , sum(case when cal.date between res.date_debut and res.date_fin then 1 else 0 end ) is_reserve
            , max(case when cal.date between res.date_debut and res.date_fin then res.nom else null end ) nom
            , max(case when cal.date between res.date_debut and res.date_fin then res.prenom else null end ) prenom
+           , max(vehi.ville) ville
        FROM calendrier cal, vehicule vehi
            LEFT JOIN reservation res on vehi.id = res.vehicule_id
                AND res.statut != 'Annulée' 
@@ -69,6 +70,7 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
                     , sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) is_reserve
                     , max(case when cal.date between res.dateDebut and res.dateFin then res.nom else \'\' end ) nom 
                     , max(case when cal.date between res.dateDebut and res.dateFin then res.prenom else \'\' end ) prenom 
+                    , max(vehi.ville) ville
                 FROM MainBundle:Calendrier cal, MainBundle:Vehicule vehi
                     LEFT JOIN vehi.reservations res 
                         WITH res.statut != \'Annulée\' 
