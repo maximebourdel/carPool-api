@@ -20,10 +20,30 @@
         <table class="seven columns">
             <tr>
                 <td>
-                    <h3>Bonjour {{ reservation.nom }} {{ reservation.prenom }}</h3>
-                    <p>Votre réservation est maintenant au statut <b>{{ reservation.statut }}</b> <p> 
+                    <h3>Annulation de <br> {{ reservation.nom }} {{ reservation.prenom }}</h3>
+                    <p>L'adresse : {{ reservation.email }}<p> 
         
-                    <p>Réservation modifiée le {{ reservation.dateDerMaj|date("d/m/Y H:i") }} par nos administrateurs.</p>
+                    <p>a annulé sa réservation le {{ reservation.dateDerMaj|date("d/m/Y H:i") }}.</p>
+                    
+                </td>
+                <td class="expander"></td>
+            </tr>
+        </table>
+
+        <table class="seven columns">
+            <tr>
+                <td>
+                    <br>
+                    <p>Le créneau est à nouveau disponible
+                        
+                    <table class="button">
+                        <tr>
+                            <td>
+                                <a href="http://5.39.77.232/carPool/front-office/dist/#/reservation/administration">Se connecter</a>
+                            </td>
+                        </tr>
+                    </table>
+
                 </td>
                 <td class="expander"></td>
             </tr>

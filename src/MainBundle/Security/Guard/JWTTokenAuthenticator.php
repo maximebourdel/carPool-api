@@ -13,14 +13,14 @@ use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 
 class JWTTokenAuthenticator extends BaseAuthenticator
 {
-    private $doctrine;
+    private $doctrines;
     
     /**
      * Injecte doctrine via les services
      * @param type $doctrine
      */
     public function setDoctrine($doctrine){
-        $this->doctrine = $doctrine;
+        $this->doctrines = $doctrine;
     }
     
     /**
@@ -70,7 +70,7 @@ class JWTTokenAuthenticator extends BaseAuthenticator
                 $user->setPrenom($json_response['usr_info']['first_name']);
                 
                 //On recherche si il y a un admin de répertorié
-                $admin = $this->doctrine->getRepository('MainBundle:Admin')
+                $admin = $this->doctrines->getRepository('MainBundle:Admin')
                             ->findOneByEmail($user->getUsername());
                 
                 //Si il est dans la base c'est un admin sinon alors USER

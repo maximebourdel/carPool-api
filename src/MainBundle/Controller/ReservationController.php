@@ -55,7 +55,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      * @throws \Doctrine\ORM\NonUniqueResultException
      *
      */
-    public function putStatutAction(Request $request)
+    public function putCancelAction(Request $request)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
@@ -63,15 +63,14 @@ class ReservationController extends FOSRestController implements ClassResourceIn
 
         $reservation = $this->getDoctrine()->getRepository('MainBundle:Reservation')->find($jsonResponse['id']);
         
-        $reservation->setDateDerMaj(new \DateTime());
-        
-        $updateReservation = $reservation->setStatut($jsonResponse['statut']);
-        
+        //Mise à jour de la date
+        $updateReservation = $reservation->setDateDerMaj(new \DateTime());
+
         $em->flush();
         
         //Envoi du mail en spool
         $mailManager = new MailManager($this->container);
-        $mailManager->sendMailChangementStatutReservation($reservation); 
+        $mailManager->sendMailToAdminAnnulationReservation($reservation); 
         
         return $updateReservation ;
     }
@@ -157,7 +156,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         
         //Envoi du mail en spool
         $mailManager = new MailManager($this->container);
-        $mailManager->sendMailDemandeReservation($newReservation); 
+        $mailManager->sendMailToAdminDemandeReservation($newReservation); 
         
         //On renvoie la nouvelle reservation
         return json_encode($newReservation);

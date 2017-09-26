@@ -21,22 +21,19 @@ class MailManager
     }
  
     /**
-     * Envoie le mail de changement de statut concernant la réservation
+     * Envoie le mail de demande d'annulation de l'utilisateur
      * @param Reservation $reservation
      */
-    function sendMailChangementStatutReservation (Reservation $reservation){
+    function sendMailToAdminAnnulationReservation (Reservation $reservation){
         
-        $message = (new \Swift_Message('Changement sur la réservation de  '. $reservation->getEmail()))
+        $message = (new \Swift_Message('Annulation de la réservation de  '. $reservation->getEmail()))
             ->setFrom('maxime.bourdel@businessdecision.com')
-            //On envoie aux admin et à celui qui a fait la demande
-            ->setTo(array_merge(
-                    $this->getListeAdmin()
-                    ,[$reservation->getEmail() => $reservation->getEmail()]
-            ))
+            //On envoie aux admin
+            ->setTo($this->getListeAdmin())
             ->setBody(
                $this->templating->render(
-                    // app/Resources/views/Emails/registration.html.twig
-                    'Emails/changement_statut.html.twig',
+                    // app/Resources/views/Emails/annulation_reservation.html
+                    'Emails/annulation_reservation.html.twig',
                     array('reservation' => $reservation)
                 ),
                 'text/html'
@@ -49,7 +46,7 @@ class MailManager
      * Envoie le mail d'envoi de réservation
      * @param Reservation $reservation
      */
-    function sendMailDemandeReservation (Reservation $reservation){
+    function sendMailToAdminDemandeReservation (Reservation $reservation){
         
         $message = (new \Swift_Message('Demande de reservation de '. $reservation->getEmail()))
             /*carpool@businessdecision.com*/
@@ -59,6 +56,28 @@ class MailManager
                 $this->templating->render(
                     // app/Resources/views/Emails/registration.html.twig
                     'Emails/demande_reservation.html.twig',
+                    array('reservation' => $reservation)
+                ),
+                'text/html'
+            );
+        
+        $this->mailer->send($message);
+    }
+    
+    /**
+     * Envoie le mail de changement de statut concernant la réservation
+     * @param Reservation $reservation
+     */
+    function sendMailChangementStatutReservation (Reservation $reservation){
+        
+        $message = (new \Swift_Message('Votre réservation pour le '. $reservation->getDateDebut()->format('d/m/Y H:i').' est modifiée'))
+            ->setFrom('maxime.bourdel@businessdecision.com')
+            //On envoie aux admin et à celui qui a fait la demande
+            ->setTo($reservation->getEmail())
+            ->setBody(
+               $this->templating->render(
+                    // app/Resources/views/Emails/registration.html.twig
+                    'Emails/changement_statut.html.twig',
                     array('reservation' => $reservation)
                 ),
                 'text/html'
