@@ -54,7 +54,7 @@ class MailManager
             ->setTo($this->getListeAdmin())
             ->setBody(
                 $this->templating->render(
-                    // app/Resources/views/Emails/registration.html.twig
+                    // app/Resources/views/Emails/demande_reservation.html.twig
                     'Emails/demande_reservation.html.twig',
                     array('reservation' => $reservation)
                 ),
@@ -76,7 +76,7 @@ class MailManager
             ->setTo($reservation->getEmail())
             ->setBody(
                $this->templating->render(
-                    // app/Resources/views/Emails/registration.html.twig
+                    // app/Resources/views/Emails/changement_statut.html.twig
                     'Emails/changement_statut.html.twig',
                     array('reservation' => $reservation)
                 ),

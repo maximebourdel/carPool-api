@@ -62,10 +62,11 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         $jsonResponse = json_decode($request->getContent(), true);
 
         $reservation = $this->getDoctrine()->getRepository('MainBundle:Reservation')->find($jsonResponse['id']);
-        
         //Mise à jour de la date
-        $updateReservation = $reservation->setDateDerMaj(new \DateTime());
-
+        $reservation->setDateDerMaj(new \DateTime());
+        
+        $updateReservation = $reservation->setStatut('Annulée');
+        
         $em->flush();
         
         //Envoi du mail en spool
