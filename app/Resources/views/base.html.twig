@@ -1,208 +1,175 @@
 {% extends 'HampeZurbInkBundle::base.html.twig' %}
+
 {% block preHtml %}
     {{ zurb_ink_styles.add("@HampeZurbInkBundle/Resources/public/css/sidebar.css") }}
 {% endblock %}
+
 {% block body %}
-<table class="body">
-<tr>
-<td class="center" align="center" valign="top">
-<center>
 
-{% block header %}
-    {% embed 'HampeZurbInkBundle:Partials:header.html.twig' %}
-        {% block headerColRight %}
-            <span class="template-label">Sidebar</span>
-        {% endblock %}
-    {% endembed %}
-{% endblock %}
+    <table class="body">
+        <tr>
+            <td class="center" align="center" valign="top">
+                <center>
 
-<br>
-
-<table class="container">
-    <tr>
-        <td>
-
-            <!-- content start -->
-            {% block content %}
-            <table class="row">
-                <tr>
-                    {% block contentLeft %}
-                    <td class="wrapper">
-
-                        <table class="six columns">
-                            <tr>
-                                <td>
-                                    <h2>Hello,<br> Han Fastolfe</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet.</p>
-                                </td>
-                                <td class="expander"></td>
-                            </tr>
-                        </table>
-
-                        <table class="six columns">
-                            <tr>
-                                <td class="panel">
-                                    <p>Phasellus dictum sapien a neque luctus cursus. Pellentesque sem dolor, fringilla et pharetra vitae. <a href="#">Click it! »</a></p>
-                                </td>
-
-                                <td class="expander"></td>
-                            </tr>
-                        </table>
-
-                        <table class="six columns">
-                            <tr>
-                                <td>
-                                    <br>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet.</p>
-
-                                    <table class="button">
-                                        <tr>
-                                            <td>
-                                                <a href="#">Click Me!</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-
-                                </td>
-                                <td class="expander"></td>
-                            </tr>
-                        </table>
-
-                    </td>
+                    {% block header %}
+                        {% embed 'HampeZurbInkBundle:Partials:header.html.twig' %}
+                            {% block headerColLeft %}
+                                <img style="width:200px;height:50px" src="{{ absolute_url(asset('img/banner.png')) }}">
+                            {% endblock %}
+                            {% block headerColRight %}
+                            {% endblock %}
+                        {% endembed %}
                     {% endblock %}
-                    {% block contentRight %}
-                    <td class="wrapper last">
 
-                        <table class="six columns">
-                            <tr>
-                                <td class="panel">
-                                    <h6>Header Thing</h6>
-                                    <p>Sub-head or something</p>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <a href="#">Just a Plain Link &raquo;</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <hr>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <a href="#">Just a Plain Link &raquo;</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <hr>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <a href="#">Just a Plain Link &raquo;</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <hr>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <a href="#">Just a Plain Link &raquo;</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <hr>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <a href="#">Just a Plain Link &raquo;</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <hr>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <a href="#">Just a Plain Link &raquo;</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <hr>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <a href="#">Just a Plain Link &raquo;</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td class="expander"></td>
-                            </tr>
-                        </table>
+                    <br>
 
-                        <br>
-
-                        <table class="six columns">
-                            <tr>
-                                <td class="panel">
-                                    <h6 style="margin-bottom:5px;">Connect With Us:</h6>
-                                    <table class="tiny-button facebook">
+                    <table class="container">
+                        <tr>
+                            <td>
+                                <!-- content start -->
+                                {% block content %}
+                                    <table class="row">
                                         <tr>
-                                            <td>
-                                                <a href="#">Facebook</a>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                            {% block contentLeft %}
+                                                <td class="wrapper">
 
-                                    <hr>
+                                                    <table class="six columns">
+                                                        <tr>
+                                                            <td>
+                                                                <h2>Hello,<br> Han Fastolfe</h2>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet.</p>
+                                                            </td>
+                                                            <td class="expander"></td>
+                                                        </tr>
+                                                    </table>
 
-                                    <table class="tiny-button twitter">
-                                        <tr>
-                                            <td>
-                                                <a href="#">Twitter</a>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                                    <table class="six columns">
+                                                        <tr>
+                                                            <td class="panel">
+                                                                <p>Phasellus dictum sapien a neque luctus cursus. Pellentesque sem dolor, fringilla et pharetra vitae. <a href="#">Click it! »</a></p>
+                                                            </td>
 
-                                    <hr>
+                                                            <td class="expander"></td>
+                                                        </tr>
+                                                    </table>
 
-                                    <table class="tiny-button google-plus">
-                                        <tr>
-                                            <td>
-                                                <a href="#">Google +</a>
-                                            </td>
+                                                    <table class="six columns">
+                                                        <tr>
+                                                            <td>
+                                                                <br>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet.</p>
+
+                                                                <table class="button">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="#">Click Me!</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+
+                                                            </td>
+                                                            <td class="expander"></td>
+                                                        </tr>
+                                                    </table>
+
+                                                </td>
+                                            {% endblock %}
+                                            {% block contentRight %}
+                                                <td class="wrapper last">
+
+                                                    <table class="five columns">
+                                                        <tr>
+                                                            <td class="panel">
+                                                                <h6>Infos réservation</h6>
+                                                                <p></p>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <b>Immatriculation :</b> {{ reservation.vehicule.immatriculation }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <hr>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <b>Marque :</b> {{ reservation.vehicule.marque }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <hr>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <b>Ville :</b> {{ reservation.vehicule.ville }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <hr>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <b>Date début :</b> {{ reservation.dateDebut|date("d/m/Y") }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <hr>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <b>Date fin :</b> {{ reservation.dateFin|date("d/m/Y") }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <hr>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <b>Statut :</b> {{ reservation.statut }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td class="expander"></td>
+                                                        </tr>
+                                                    </table>
+
+                                                    <br>
+
+                                                    <table class="five columns">
+                                                        <tr>
+                                                            <td class="panel">
+                                                                <h6 style="margin-bottom:5px;">Info contact :</h6>
+                                                                <p>Téléphone: <b>06 59 46 16 07</b></p>
+                                                                <p>Email: <a href="mailto:carpool@businessdecision.com">carpool@businessdecision.com</a></p>
+                                                            </td>
+                                                            <td class="expander"></td>
+                                                        </tr>
+                                                    </table>
+
+                                                </td>
+                                            {% endblock %}
                                         </tr>
                                     </table>
                                     <br>
-                                    <h6 style="margin-bottom:5px;">Contact Info:</h6>
-                                    <p>Phone: <b>408.341.0600</b></p>
-                                    <p>Email: <a href="mailto:hseldon@trantor.com">hseldon@trantor.com</a></p>
+                                    <br>
+                                    <!-- Legal + Unsubscribe -->
+                                    {% block footer %}
+                                        {% embed 'HampeZurbInkBundle:Partials:footer.html.twig' %}
+
+                                        {% endembed %}
+                                    {% endblock %}
+
+                                <!-- container end below -->
                                 </td>
-                                <td class="expander"></td>
                             </tr>
                         </table>
-
-                    </td>
                     {% endblock %}
-                </tr>
-            </table>
-            <br>
-            <br>
-            <!-- Legal + Unsubscribe -->
-            {% block footer %}
-                {% embed 'HampeZurbInkBundle:Partials:footer.html.twig' %}
-
-                {% endembed %}
-            {% endblock %}
-
-            <!-- container end below -->
-        </td>
-    </tr>
-</table>
-{% endblock %}
-</center>
-</td>
-</tr>
-</table>
+                </center>
+            </td>
+        </tr>
+    </table>
 {% endblock %}

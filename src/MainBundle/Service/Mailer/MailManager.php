@@ -26,8 +26,10 @@ class MailManager
      */
     function sendMailToAdminAnnulationReservation (Reservation $reservation){
         
-        $message = (new \Swift_Message('Annulation de la réservation de  '. $reservation->getEmail()))
-            ->setFrom('maxime.bourdel@businessdecision.com')
+        $message = (new \Swift_Message('Annulation de la réservation de '
+                . $reservation->getNom().' '. $reservation->getPrenom() ))
+                
+            ->setFrom('carpool@businessdecision.com')
             //On envoie aux admin
             ->setTo($this->getListeAdmin())
             ->setBody(
@@ -50,7 +52,7 @@ class MailManager
         
         $message = (new \Swift_Message('Demande de reservation de '. $reservation->getEmail()))
             /*carpool@businessdecision.com*/
-            ->setFrom('maxime.bourdel@businessdecision.com')
+            ->setFrom('carpool@businessdecision.com')
             ->setTo($this->getListeAdmin())
             ->setBody(
                 $this->templating->render(
@@ -71,7 +73,7 @@ class MailManager
     function sendMailChangementStatutReservation (Reservation $reservation){
         
         $message = (new \Swift_Message('Votre réservation pour le '. $reservation->getDateDebut()->format('d/m/Y H:i').' est modifiée'))
-            ->setFrom('maxime.bourdel@businessdecision.com')
+            ->setFrom('carpool@businessdecision.com')
             //On envoie aux admin et à celui qui a fait la demande
             ->setTo($reservation->getEmail())
             ->setBody(

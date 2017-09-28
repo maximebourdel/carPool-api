@@ -3,16 +3,6 @@
 {# On étend notre layout #} 
 {% extends "::base.html.twig" %} 
 
-{% block header %}
-    {% embed 'HampeZurbInkBundle:Partials:header.html.twig' %}
-        {% block headerColLeft %}
-            <img style="width:200px;height:50px" src="{{ absolute_url(asset('img/banner.png')) }}">
-        {% endblock %}
-        {% block headerColRight %}
-        {% endblock %}
-    {% endembed %}
-{% endblock %}
-
 {% block contentLeft %}
     <td class="wrapper">
 
@@ -52,81 +42,7 @@
 {% endblock %}
 
 
-{% block contentRight %}
-    <td class="wrapper last">
 
-        <table class="five columns">
-            <tr>
-                <td class="panel">
-                    <h6>Info réservations</h6>
-                    <p></p>
-                    <table>
-                        <tr>
-                            <td>
-                                <b>Immatriculation :</b> {{ reservation.vehicule.immatriculation }}
-                            </td>
-                        </tr>
-                    </table>
-                    <hr>
-                    <table>
-                        <tr>
-                            <td>
-                                <b>Marque :</b> {{ reservation.vehicule.marque }}
-                            </td>
-                        </tr>
-                    </table>
-                    <hr>
-                    <table>
-                        <tr>
-                            <td>
-                                <b>Ville :</b> {{ reservation.vehicule.ville }}
-                            </td>
-                        </tr>
-                    </table>
-                    <hr>
-                    <table>
-                        <tr>
-                            <td>
-                                <b>Date début :</b> {{ reservation.dateDebut|date("d/m/Y") }}
-                            </td>
-                        </tr>
-                    </table>
-                    <hr>
-                    <table>
-                        <tr>
-                            <td>
-                                <b>Date fin :</b> {{ reservation.dateFin|date("d/m/Y") }}
-                            </td>
-                        </tr>
-                    </table>
-                    <hr>
-                    <table>
-                        <tr>
-                            <td>
-                                <b>Statut :</b> {{ reservation.statut }}
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="expander"></td>
-            </tr>
-        </table>
-
-        <br>
-
-        <table class="five columns">
-            <tr>
-                <td class="panel">
-                    <h6 style="margin-bottom:5px;">Contact Info:</h6>
-                    <p>Téléphone: <b>06 59 46 16 07</b></p>
-                    <p>Email: <a href="mailto:maxime.bourdel@businessdecision.com">maxime.bourdel@businessdecision.com</a></p>
-                </td>
-                <td class="expander"></td>
-            </tr>
-        </table>
-
-    </td>
-{% endblock %}
 
 
 {% block footer %}{% endblock %}
