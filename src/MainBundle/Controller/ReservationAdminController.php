@@ -6,11 +6,11 @@ use FOS\RestBundle\Controller\FOSRestController;
 
 use Symfony\Component\HttpFoundation\Request;
 
-
 use MainBundle\Service\Mailer\MailManager;
 
-
+//Ne pas supprimer sont utilisés dans les annotations
 use FOS\RestBundle\Controller\Annotations as Rest;
+use  Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 /**
  * Controller pour les réservations en mode Admin
@@ -20,13 +20,13 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 class ReservationAdminController extends FOSRestController {
     
     /**
-     * Retourne la liste complète des Reservation
-     *
+     * @ApiDoc(
+     *  description="Retourne la liste complète des Reservation"
+     *  , output="MainBundle\Entity\Reservation"
+     * )
      * @Rest\View()
-     * @return mixed
      * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     *
+     * @throws \Doctrine\ORM\NonUniqueResultException 
      */
     public function getReservationAllAction()
     {
@@ -37,13 +37,20 @@ class ReservationAdminController extends FOSRestController {
     }
     
     /**
-     * Change le statut d'une réservation
-     *
+     * @ApiDoc(
+     *  description="Change le statut d'une réservation"
+     *  , requirements={
+     *      {
+     *          "name"="request",
+     *          "dataType"="Symfony\Component\HttpFoundation\Request",
+     *          "description"="Paramètres représentant l'id réservation et le nouveau statut ex : { id: 88, statut: 'Confirmée' }"
+     *      }
+     *  }
+     *  , output="MainBundle\Entity\Reservation"
+     * )
      * @Rest\View()
-     * @return mixed
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
      */
     public function putReservationStatutAction(Request $request)
     {
@@ -54,7 +61,7 @@ class ReservationAdminController extends FOSRestController {
         $reservation = $this->getDoctrine()->getRepository('MainBundle:Reservation')->find($jsonResponse['id']);
         //Mise à jour de la date
         $reservation->setDateDerMaj(new \DateTime());
-        
+        //Mise à jour du statut
         $updateReservation = $reservation->setStatut($jsonResponse['statut']);
         
         $em->flush();

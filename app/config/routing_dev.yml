@@ -1,3 +1,8 @@
+#Pour la documentation
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix: "/doc"
+
 _wdt:
     resource: '@WebProfilerBundle/Resources/config/routing/wdt.xml'
     prefix: /_wdt

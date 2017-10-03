@@ -11,13 +11,22 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
 class WebserviceUserProvider implements UserProviderInterface
 { 
-
+    /**
+     * Crée un utilisateur avec pour premier attribut son email puis le renvoie
+     * @param String $username
+     * @return WebserviceUser
+     */
     public function loadUserByUsername($username)
     {
         return new WebserviceUser($username);
     }
     
-
+    /**
+     * Fonction inconnue
+     * @param UserInterface $user
+     * @return WebserviceUser
+     * @throws UnsupportedUserException
+     */
     public function refreshUser(UserInterface $user)
     {
         if (!$user instanceof WebserviceUser) {
@@ -25,10 +34,14 @@ class WebserviceUserProvider implements UserProviderInterface
                 sprintf('Instances of "%s" are not supported.', get_class($user))
             );
         }
-
         return $this->loadUserByUsername($user->getUsername());
     }
-
+    
+    /**
+     * Fonction inconnue
+     * @param type $class
+     * @return type
+     */
     public function supportsClass($class)
     {
         return WebserviceUser::class === $class;

@@ -4,10 +4,12 @@ namespace MainBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
 
+//Ne pas supprimer sont utilisés dans les annotations
 use FOS\RestBundle\Controller\Annotations as Rest;
+use  Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 /**
- * Controller pour les véhicules
+ * Controller pour les véhicules en mode Admin
  * @package MainBundle\Controller
  * @author Maxime Bourdel
  */
@@ -15,11 +17,18 @@ class VehiculeAdminController extends FOSRestController
 {
     
     /**
-     * Retourne un Vehicule individuel pour un identifiant donné
-     *
+     * @ApiDoc(
+     *  description="Retourne un Vehicule individuel pour un identifiant donné"
+     *  , requirements={
+     *      {
+     *          "name"="id",
+     *          "dataType"="integer",
+     *          "description"="Paramètres représentant l'id du vehicule ex : 1"
+     *      }
+     *  }
+     *  , output="MainBundle\Entity\Vehicule"
+     * )
      * @Rest\View()
-     * @param String $id identifiant du véhicule
-     * @return mixed
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
@@ -31,8 +40,11 @@ class VehiculeAdminController extends FOSRestController
     }    
     
     /**
-     * Retourne la lite complète des Vehicules
-     *
+     * 
+     * @ApiDoc(
+     *  description="Retourne la lite complète des Vehicules"
+     *  , output={ "class"=MainBundle\Entity\Vehicule::class, "collection"=true }
+     * )
      * @Rest\View()
      * @return mixed
      * @throws \Doctrine\ORM\NoResultException

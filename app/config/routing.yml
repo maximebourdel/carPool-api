@@ -1,18 +1,14 @@
-NelmioApiDocBundle:
-    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
-    prefix: "/doc"
-
 #pour lauthentification (passe par JWT voir security.yml)
 login_check:
     path: /login_check
 
-#seuls les ROLE_USER on accès à cette URL
+#seuls les ROLE_USER ont accès à cette URL
 auth:
     type: rest
     resource: "routing_auth.yml"
     prefix: /auth
 
-#seuls les ROLE_ADMIN on accès à cette URL
+#seuls les ROLE_ADMIN ont accès à cette URL
 admin:
     type: rest
     resource: "routing_admin.yml"

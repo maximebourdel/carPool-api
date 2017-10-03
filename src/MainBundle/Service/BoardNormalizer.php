@@ -2,14 +2,18 @@
 
 namespace MainBundle\Service;
 
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-
-use MainBundle\Entity\Vehicule;
 
 class BoardNormalizer extends GetSetMethodNormalizer
 {
+    /**
+     * Fonction appelée automatiquement lors de l'appel à la class BoardNormalizer
+     * @param $data
+     * @param $class
+     * @param type $format
+     * @param array $context
+     * @return type
+     */
     public function denormalize($data, $class, $format = null, array $context = array())
     {
         //Concernant le vehicule

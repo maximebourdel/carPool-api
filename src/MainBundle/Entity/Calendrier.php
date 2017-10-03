@@ -7,15 +7,18 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Calendrier
  *
- * @ORM\Table(name="calendrier")
+ * @ORM\Table(name="calendrier", options={"comment":"Table listant jours de la semaine (à maintenir à jour manuellement)"})
  * @ORM\Entity(repositoryClass="MainBundle\Repository\CalendrierRepository")
+ * 
+ * @package MainBundle\Entity
+ * @author Maxime Bourdel
  */
 class Calendrier
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", options={"comment":"Identifiant technique unique de la table calendrier"})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,35 +27,35 @@ class Calendrier
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date", unique=true)
+     * @ORM\Column(name="date", type="date", unique=true, options={"comment":"Clé unique représentant la date au format %Y-%m-%d "})
      */
     private $date;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="jour", type="integer")
+     * @ORM\Column(name="jour", type="integer", options={"comment":"Extraction du jour '%d' de l'objet Date"})
      */
     private $jour;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="mois", type="integer")
+     * @ORM\Column(name="mois", type="integer", options={"comment":"Extraction du mois '%m' de l'objet Date"})
      */
     private $mois;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="annee", type="integer")
+     * @ORM\Column(name="annee", type="integer", options={"comment":"Extraction de l'année '%Y' de l'objet Date"})
      */
     private $annee;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="semaine", type="integer")
+     * @ORM\Column(name="semaine", type="integer", options={"comment":"Extraction de la semaine de l'objet Date"})
      */
     private $semaine;
 

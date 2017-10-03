@@ -11,6 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Lexik\Bundle\JWTAuthenticationBundle\Security\Authentication\Token\JWTUserToken;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 
+/**
+ * Représente tous les appels concernant l'identification d'un utilisateur (login)
+ * @package MainBundle\Security\Guard
+ * @author Maxime Bourdel
+ */
 class JWTTokenAuthenticator extends BaseAuthenticator
 {
     private $doctrines;
@@ -24,6 +29,11 @@ class JWTTokenAuthenticator extends BaseAuthenticator
     }
     
     /**
+     * Etape 1 
+     * Récupère ce que rentre l'utilisateur et le retourne sous forme de tableau
+     * @param Request $request
+     * @throws \InvalidArgumentException
+     * @return Array
      * {@inheritdoc}
      */
     public function getCredentials(Request $request)
@@ -42,6 +52,11 @@ class JWTTokenAuthenticator extends BaseAuthenticator
     }
 
     /**
+     * Etape 2
+     * Récupère l'utilisateur
+     * @param type $credentials
+     * @param UserProviderInterface $userProvider
+     * @return type
      * {@inheritdoc}
      */
     public function getUser($credentials, UserProviderInterface $userProvider)
@@ -52,6 +67,12 @@ class JWTTokenAuthenticator extends BaseAuthenticator
     
 
     /**
+     * Etape 3
+     * Vérifie le mot de passe (password) de l'utilisateur est correct via l'API Kayoo
+     * @param type $credentials
+     * @param UserInterface $user
+     * @return boolean return true si mdp ok
+     * @throws BadCredentialsException
      * {@inheritdoc}
      */
     public function checkCredentials($credentials, UserInterface $user)
@@ -65,31 +86,35 @@ class JWTTokenAuthenticator extends BaseAuthenticator
         $json_response = $this->callKayooAPI($values);
 
         if( $json_response['error'] == '0'){
-                $user->setPassword($credentials['password']);
-                $user->setNom($json_response['usr_info']['last_name']);
-                $user->setPrenom($json_response['usr_info']['first_name']);
-                
-                //On recherche si il y a un admin de répertorié
-                $admin = $this->doctrines->getRepository('MainBundle:Admin')
-                            ->findOneByEmail($user->getUsername());
-                
-                //Si il est dans la base c'est un admin sinon alors USER
-                if($admin != null ){
-                    $user->setRoles(['ROLE_ADMIN']);
-                } else {
-                    $user->setRoles(['ROLE_USER']);
-                }
-                
-                return true;
+            $user->setPassword($credentials['password']);
+            $user->setNom($json_response['usr_info']['last_name']);
+            $user->setPrenom($json_response['usr_info']['first_name']);
+
+            //On recherche si il y a un admin de répertorié
+            $admin = $this->doctrines->getRepository('MainBundle:Admin')
+                        ->findOneByEmail($user->getUsername());
+
+            //Si il est dans la base c'est un admin sinon alors USER
+            if($admin != null ){
+                $user->setRoles(['ROLE_ADMIN']);
+            } else {
+                $user->setRoles(['ROLE_USER']);
+            }
+            //Arrivé ici = mdp ok donc on valide cette étape
+            return true;
         }
         
+        //Mauvaises infos (email ou mdp)
         throw new BadCredentialsException();
     }
     
     /**
+     * Etape 4
+     * L'utilisateur est OK, on crée son token
+     * @param UserInterface $user
+     * @param type $providerKey
+     * @return JWTUserToken
      * {@inheritdoc}
-     *
-     * @throws \RuntimeException If there is no pre-authenticated token previously stored
      */
     public function createAuthenticatedToken(UserInterface $user, $providerKey)
     {
@@ -97,6 +122,11 @@ class JWTTokenAuthenticator extends BaseAuthenticator
     }
     
     
+    /**
+     * Appel à l'API Kayoo
+     * @param type $values valeurs en GET (ex : https://www.kayoo.com/_/Layout_Common_Login/login2?user=maxime.bourdel@businessdecision.com&password=toto&rememberMe=true&json=true)
+     * @return type json exemple en cas d'erreur {"error":800,"message":"Identifiant ou mot de passe incorrect","app_info":{"v":{"web_app":"1.7.20160307","mobile_app":"3.0"}}}
+     */
     private function callKayooAPI($values){
         
         $url='https://www.kayoo.com/_/Layout_Common_Login/login2';
@@ -112,7 +142,6 @@ class JWTTokenAuthenticator extends BaseAuthenticator
         curl_close ($ch);
         
         return json_decode($response, true);
-        
     }
     
 }

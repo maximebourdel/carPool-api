@@ -7,15 +7,18 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Admin
  *
- * @ORM\Table(name="admin")
+ * @ORM\Table(name="admin", options={"comment":"Table listant les administrateurs de l'application"})
  * @ORM\Entity(repositoryClass="MainBundle\Repository\AdminRepository")
+ * 
+ * @package MainBundle\Entity
+ * @author Maxime Bourdel
  */
 class Admin
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", options={"comment":"Identifiant technique unique de l'admin"})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,7 +27,7 @@ class Admin
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @ORM\Column(name="email", type="string", length=255, unique=true, options={"comment":"Adresse email de l'admin représente une clé unique"})
      */
     private $email;
 

@@ -15,26 +15,34 @@ use MainBundle\Entity\Reservation;
 use MainBundle\Service\Mailer\MailManager;
 
 use MainBundle\Service\BoardNormalizer;
-use FOS\RestBundle\Controller\Annotations as Rest;
 
+//Ne pas supprimer sont utilisés dans les annotations
+use FOS\RestBundle\Controller\Annotations as Rest;
+use  Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 /**
  * Controller pour les réservations
  * @package MainBundle\Controller
  * @author Maxime Bourdel
- * 
  */
 class ReservationController extends FOSRestController implements ClassResourceInterface
 {
 
     /**
-     * Retourne une liste d'Reservation pour un simple utilisateur
-     *
+     * @ApiDoc(
+     *  description="Retourne une liste de Reservations pour un simple utilisateur"
+     *  , requirements={
+     *      {
+     *          "name"="request",
+     *          "dataType"="Symfony\Component\HttpFoundation\Request",
+     *          "description"="Paramètres représentant l'email de l'utilisateur statut ex : {email: 'maximebourdel@businessdecision.com'}"
+     *      }
+     *  }
+     *  , output={ "class"=Reservation::class, "collection"=true }
+     * )
      * @Rest\View()
-     * @return mixed
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
      */
     public function postMyListAction(Request $request)
     {
@@ -47,13 +55,20 @@ class ReservationController extends FOSRestController implements ClassResourceIn
     }
 
     /**
-     * Change le statut d'une réservation
-     *
+     * @ApiDoc(
+     *  description="Change le statut d'une réservation"
+     *  , requirements={
+     *      {
+     *          "name"="request",
+     *          "dataType"="Symfony\Component\HttpFoundation\Request",
+     *          "description"="Paramètres représentant l'id réservation plus le statut annulé ex : { id: 41, statut: 'Annulée' }"
+     *      }
+     *  }
+     *  , output="MainBundle\Entity\Reservation"
+     * )
      * @Rest\View()
-     * @return mixed
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
      */
     public function putCancelAction(Request $request)
     {
@@ -77,13 +92,12 @@ class ReservationController extends FOSRestController implements ClassResourceIn
     }
     
     /**
-     * Retourne une liste de Reservation
-     *
+     *  description="Retourne une liste de Reservation"
+     *  , output={ "class"=Reservation::class, "collection"=true }
+     * )
      * @Rest\View()
-     * @return mixed
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
      */
     public function getSumdaybydayAction()
     {
@@ -94,14 +108,20 @@ class ReservationController extends FOSRestController implements ClassResourceIn
     }
 
     /**
-     * Retourne des créneaux de réservation
-     *
+     * @ApiDoc(
+     *  description="Retourne des créneaux de réservation"
+     *  , requirements={
+     *      {
+     *          "name"="request",
+     *          "dataType"="Symfony\Component\HttpFoundation\Request",
+     *          "description"="Paramètres représentant le mois et l'année ex : { annee: 2017, mois: 10 }"
+     *      }
+     *  }
+     *  , output={ "class"=Reservation::class, "collection"=true }
+     * )
      * @Rest\View()
-     * @param String $request
-     * @return mixed
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
      */
     public function postCreneauxbyanneemoisAction(Request $request)
     {
@@ -114,11 +134,18 @@ class ReservationController extends FOSRestController implements ClassResourceIn
     }
     
     /**
-     * Crée une reservation en fonction du JSON reçu
-     *
+     * @ApiDoc(
+     *  description="Crée une reservation en fonction du JSON reçu"
+     *  , requirements={
+     *      {
+     *          "name"="request",
+     *          "dataType"="Symfony\Component\HttpFoundation\Request",
+     *          "description"="Request contenant un objet Reservation"
+     *      }
+     *  }
+     *  , output="MainBundle\Entity\Reservation"
+     * )
      * @Rest\View()
-     * @param Request $request
-     * @return mixed
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
@@ -128,7 +155,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         $encoder = new JsonEncoder();
         $normalizer = new BoardNormalizer();
         $serializer = new Serializer([$normalizer], [$encoder]);
-              
+        
         //Cree la reservation a partir de la response 
         $newReservation = $serializer->deserialize(
             $request->getContent()
@@ -146,7 +173,6 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         
         //On l'affecte a l'objet Reservation que l'on vient de creer
         $newReservation->setVehicule($vehiculeInDB);
-        
         $newReservation->setDateCreation(new \DateTime());
         $newReservation->setDateDerMaj(new \DateTime());
         

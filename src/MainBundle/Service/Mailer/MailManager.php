@@ -28,9 +28,8 @@ class MailManager
         
         $message = (new \Swift_Message('Annulation de la réservation de '
                 . $reservation->getNom().' '. $reservation->getPrenom() ))
-                
             ->setFrom('carpool@businessdecision.com')
-            //On envoie aux admin
+            //On envoie aux admins
             ->setTo($this->getListeAdmin())
             ->setBody(
                $this->templating->render(
@@ -52,8 +51,8 @@ class MailManager
         
         $message = (new \Swift_Message('Demande de reservation de '
                 . $reservation->getNom().' '. $reservation->getPrenom() ))
-            /*carpool@businessdecision.com*/
             ->setFrom('carpool@businessdecision.com')
+            //On envoie aux admins
             ->setTo($this->getListeAdmin())
             ->setBody(
                 $this->templating->render(
@@ -68,14 +67,14 @@ class MailManager
     }
     
     /**
-     * Envoie le mail de changement de statut concernant la réservation
+     * Envoie le mail de changement de statut à l'utilisateur concernant la réservation effectué par l'admin
      * @param Reservation $reservation
      */
     function sendMailChangementStatutReservation (Reservation $reservation){
         
         $message = (new \Swift_Message('Votre réservation pour le '. $reservation->getDateDebut()->format('d/m/Y').' est modifiée'))
             ->setFrom('carpool@businessdecision.com')
-            //On envoie aux admin et à celui qui a fait la demande
+            //On envoie à celui qui a fait la demande
             ->setTo($reservation->getEmail())
             ->setBody(
                $this->templating->render(
@@ -91,7 +90,7 @@ class MailManager
     
     /**
      * Retourne la liste des aministrateurs de la table Admin 
-     * @return array Liste des admin ex : ['adr1','adr2']
+     * @return Array Liste des admin ex : ['adr1','adr2']
      */
     function getListeAdmin (){
         //On récupère les admins

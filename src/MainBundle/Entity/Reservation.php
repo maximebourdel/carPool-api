@@ -9,18 +9,19 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Reservation
  *
- * @ORM\Table(name="reservation")
+ * @ORM\Table(name="reservation", options={"comment":"Liste des réservations de voitures de pool"})
  * @ORM\Entity(repositoryClass="MainBundle\Repository\ReservationRepository")
  * @UniqueEntity(fields={"vehicule", "dateDebut", "dateFin"})
  * 
+ * @package MainBundle\Entity
+ * @author Maxime Bourdel
  */
-
 class Reservation
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", options={"comment":"Identifiant technique unique de la réservation"})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -35,56 +36,56 @@ class Reservation
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, options={"comment":"Email de l'utilisateur ayant fait la réservation (représente l'id unique de l'utilisateur)"})
      */
     private $email;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255, options={"comment":"Nom de famille de l'utilisateur ayant fait la réservation (en majuscule)"})
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="prenom", type="string", length=255, options={"comment":"Prénom de l'utilisateur ayant fait la réservation"})
      */
     private $prenom;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_debut", type="datetime")
+     * @ORM\Column(name="date_debut", type="datetime", options={"comment":"Jour ou le véhicule sera récupéré par le demandeur"})
      */
     private $dateDebut;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_fin", type="datetime")
+     * @ORM\Column(name="date_fin", type="datetime", options={"comment":"Jour ou le véhicule sera rendu par le demandeur"})
      */
     private $dateFin;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="statut", type="string", length=100)
+     * @ORM\Column(name="statut", type="string", length=100, options={"comment":"Statut de la réservation peut-être annulée, en attente confirmé ou autres..."})
      */
     private $statut;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_creation", type="datetime")
+     * @ORM\Column(name="date_creation", type="datetime", options={"comment":"Champ technique permettant d'enregistrer la date de d'insertion de la ligne"})
      */
     private $dateCreation;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_der_maj", type="datetime")
+     * @ORM\Column(name="date_der_maj", type="datetime", options={"comment":"Champ technique permettant d'enregistrer la date de dernière modification de la ligne"})
      */
     private $dateDerMaj;
 
