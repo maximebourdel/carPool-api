@@ -61,7 +61,6 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
      */
     public function findCreneauxByAnneeMois(int $annee, int $mois)
     {
-
         return $this->getEntityManager()
             ->createQuery(
                 'SELECT 
@@ -80,5 +79,34 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
             )
             ->getResult();
     }
+    
+    /**
+     * Retrouve les réservations dont la date de fin
+     * 
+        SELECT *
+        FROM reservation res
+        WHERE 
+            res.statut = 'Confirmée' 
+            AND res.date_fin <= NOW() + 1
+            AND res.feedback_id IS NULL 
+        ORDER BY res.date_fin ASC
+     * @return Reservation
+     */
+    public function findNotRatedFinishedReservations()
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT 
+                    res 
+                FROM MainBundle:Reservation res 
+                WHERE 
+                    res.statut = \'Confirmée\' 
+                    AND res.dateFin <= NOW() + 1 
+                    AND res.feedback IS NULL 
+                ORDER BY res.dateFin ASC'
+            )
+            ->getResult();
+    }
 
 }
+

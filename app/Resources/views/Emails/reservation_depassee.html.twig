@@ -1,0 +1,48 @@
+{# app/Resources/views/Emails/changement_statut.html.twig #}
+
+{# Cette page sert pour le formulaire 
+des annulations de réservations effectuées côté utilisateur #}
+
+{# On étend notre layout #} 
+{% extends "::Emails/base.html.twig" %} 
+
+{% block contentLeft %}
+    <td class="wrapper">
+
+        <table class="seven columns">
+            <tr>
+                <td>
+                    <h3>Cher <br> {{ reservation.nom }} {{ reservation.prenom }}</h3>
+                    <p>Nous espérons que votre réservation s'est bien passée<p> 
+        
+                    <p>Pouvez-vous remplir ce formulaireafin de finaliser votre demande ?</p>
+                    
+                </td>
+                <td class="expander"></td>
+            </tr>
+        </table>
+
+        <table class="seven columns">
+            <tr>
+                <td>
+                    <br>
+                    <p>Merci de fournir une réponse sur le site de Carpool en cliquant sur le bouton ci-dessous.
+                        
+                    <table class="button">
+                        <tr>
+                            <td>
+                                <a href="http://5.39.77.232/carPool/front-office/dist/#/">Remplir le formulaire</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+                <td class="expander"></td>
+            </tr>
+        </table>
+
+    </td>
+{% endblock %}
+
+
+{% block footer %}{% endblock %}

@@ -84,7 +84,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         
         $em->flush();
         
-        //Envoi du mail en spool
+        //Stockage du mail dans le spool
         $mailManager = new MailManager($this->container);
         $mailManager->sendMailToAdminAnnulationReservation($reservation); 
         
@@ -181,7 +181,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         $em->persist($newReservation);
         $em->flush();
         
-        //Envoi du mail en spool
+        //Stockage du mail dans le spool
         $mailManager = new MailManager($this->container);
         $mailManager->sendMailToAdminDemandeReservation($newReservation); 
         

@@ -66,13 +66,27 @@ class ReservationAdminController extends FOSRestController {
         
         $em->flush();
         
-        //Envoi du mail en spool
+        //Stockage du mail dans le spool
         $mailManager = new MailManager($this->container);
         $mailManager->sendMailChangementStatutReservation($reservation); 
         
         return $updateReservation ;
     }
 
+    /**
+     * @ApiDoc(
+     *  description="Envoie un mail aux personnes ayant reservation confirmée et n'ayant pas validé le formulaire pour terminer"
+     * )
+     * @Rest\View()
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException 
+     */
+    public function envoiMailsResaTerminee()
+    {
+        return $this->getDoctrine()
+                    ->getRepository('MainBundle:Reservation')
+                    ->findAll();
+    }
     
     
 }

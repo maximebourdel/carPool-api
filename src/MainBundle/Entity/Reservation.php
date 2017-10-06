@@ -34,6 +34,12 @@ class Reservation
     private $vehicule;    
 
     /**
+     * @ORM\OneToOne(targetEntity="MainBundle\Entity\Feedback", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     */
+    private $feedback;      
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, options={"comment":"Email de l'utilisateur ayant fait la réservation (représente l'id unique de l'utilisateur)"})
@@ -123,6 +129,30 @@ class Reservation
         return $this->vehicule;
     }
  
+    /**
+     * Set feedback
+     *
+     * @param \MainBundle\Entity\Feedback $feedback
+     *
+     * @return Reservation
+     */
+    public function setFeedback($feedback)
+    {
+        $this->feedback = $feedback;
+
+        return $this;
+    }      
+    
+    /**
+     * Get feedback
+     *
+     * @return \MainBundle\Entity\Feedback
+     */
+    public function getFeedback()
+    {
+        return $this->feedback;
+    }    
+    
     /**
      * Set email
      *

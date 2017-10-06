@@ -87,6 +87,29 @@ class MailManager
         
         $this->mailer->send($message);
     }
+
+    /**
+     * Envoie un mail aux utilisateurs remplissant les conditions suivantes :
+     * avoir une réservation confirmée donc la date de fin est inférieure ou égale à sysdate-1 
+     * @return Array Liste des admin ex : ['adr1','adr2']
+     */
+    function sendMailDateFinDepasseeReservation (Reservation $reservation){
+        
+        $message = (new \Swift_Message('Comment s\'est passée votre réservation terminée le  '. $reservation->getDateFin()->format('d/m/Y').' ?'))
+            ->setFrom('carpool@businessdecision.com')
+            //On envoie à celui qui a fait la demande
+            ->setTo($reservation->getEmail())
+            ->setBody(
+               $this->templating->render(
+                    // app/Resources/views/Emails/reservation_depassee.html.twig
+                    'Emails/reservation_depassee.html.twig',
+                    array('reservation' => $reservation)
+                ),
+                'text/html'
+            );
+        
+        $this->mailer->send($message);
+    }    
     
     /**
      * Retourne la liste des aministrateurs de la table Admin 
