@@ -30,6 +30,9 @@ class BoardNormalizer extends GetSetMethodNormalizer
         if (isset($data['date_fin'])) {
             $data['dateFin'] = new \DateTime($data['date_fin']);
         }
+        if (isset($data['is_feedbackable'])) {
+            $data['isFeedbackable'] = $data['is_feedbackable'];
+        }
         
         return parent::denormalize($data, $class, $format, $context);
     }

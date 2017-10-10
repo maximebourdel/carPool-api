@@ -15,7 +15,7 @@ class Feedback
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", options={"comment":"Identifiant technique unique du Feedback"})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */

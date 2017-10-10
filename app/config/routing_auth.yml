@@ -8,3 +8,6 @@ reservation:
     type: rest
     resource: MainBundle\Controller\ReservationController
 
+feedback:
+    type: rest
+    resource: MainBundle\Controller\FeedbackController

@@ -33,9 +33,9 @@ class CronMailCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $reservations = $this->getContainer()->get('doctrine')
-                ->getRepository('MainBundle:Reservation')
-                ->findNotRatedFinishedReservations();
+        $doctrine = $this->getContainer()->get('doctrine');
+        $reservations = $doctrine->getRepository('MainBundle:Reservation')
+                    ->findNotRatedFinishedReservations();
         //Commentaire
         $output->writeln([
             '============',
@@ -44,7 +44,12 @@ class CronMailCommand extends ContainerAwareCommand
         foreach ($reservations as $reservation){
             //Stockage du mail dans le spool
             $mailManager = new MailManager($this->getContainer());
-            $mailManager->sendMailDateFinDepasseeReservation($reservation); 
+            $mailManager->sendMailDateFinDepasseeReservation($reservation);
+            //On met à true pour que le mail ne soit pas envoyé plusieurs fois 
+            //et que l'utilisateur aie le droit de replir sont feedback
+            $reservation->setIsFeedbackable(true);
+            //On commit
+            $doctrine->getEntityManager()->flush();
         }
         $output->writeln([
             'Envoi des emails terminé',

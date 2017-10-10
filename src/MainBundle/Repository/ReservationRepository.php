@@ -103,6 +103,7 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
                     res.statut = \'Confirmée\' 
                     AND res.dateFin <= NOW() + 1 
                     AND res.feedback IS NULL 
+                    AND res.isFeedbackable = 0 
                 ORDER BY res.dateFin ASC'
             )
             ->getResult();

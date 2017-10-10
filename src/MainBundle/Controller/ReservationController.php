@@ -30,6 +30,30 @@ class ReservationController extends FOSRestController implements ClassResourceIn
 
     /**
      * @ApiDoc(
+     *  description="Retourne une réservation pour un utilisateur"
+     *  , requirements={
+     *      {
+     *          "name"="id",
+     *          "dataType"="int",
+     *          "description"="Paramètres représentant l'id de la réservation désirée ex : 12"
+     *      }
+     *  }
+     *  , output="MainBundle\Entity\Reservation"
+     * )
+     * @Rest\View()
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getAction(int $id)
+    {
+        //retourne une réservation
+        return $this->getDoctrine()
+                    ->getRepository('MainBundle:Reservation')
+                    ->find($id);
+    }    
+    
+    /**
+     * @ApiDoc(
      *  description="Retourne une liste de Reservations pour un simple utilisateur"
      *  , requirements={
      *      {
@@ -173,6 +197,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         
         //On l'affecte a l'objet Reservation que l'on vient de creer
         $newReservation->setVehicule($vehiculeInDB);
+        $newReservation->setIsFeedbackable(false);
         $newReservation->setDateCreation(new \DateTime());
         $newReservation->setDateDerMaj(new \DateTime());
         

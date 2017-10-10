@@ -80,6 +80,13 @@ class Reservation
      * @ORM\Column(name="statut", type="string", length=100, options={"comment":"Statut de la réservation peut-être annulée, en attente confirmé ou autres..."})
      */
     private $statut;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_feedbackable", type="boolean", options={"comment":"Champ technique permettant de savoir si l'utilisateur a été notifié et si il peut faire le feedback"})
+     */
+    private $isFeedbackable;
 
     /**
      * @var \DateTime
@@ -321,7 +328,31 @@ class Reservation
         return $this->dateCreation;
     }
 
-        /**
+    /**
+     * Set isFeedbackable
+     *
+     * @param boolean $isFeedbackable
+     *
+     * @return Reservation
+     */
+    public function setIsFeedbackable($isFeedbackable)
+    {
+        $this->isFeedbackable = $isFeedbackable;
+
+        return $this;
+    }
+
+    /**
+     * Get isFeedbackable
+     *
+     * @return boolean
+     */
+    public function getIsFeedbackable()
+    {
+        return $this->isFeedbackable;
+    }    
+    
+    /**
      * Set dateDerMaj
      *
      * @param \DateTime $dateDerMaj
@@ -344,6 +375,5 @@ class Reservation
     {
         return $this->dateDerMaj;
     }
-    
 }
 
