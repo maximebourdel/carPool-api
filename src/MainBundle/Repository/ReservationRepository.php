@@ -88,7 +88,8 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
         WHERE 
             res.statut = 'Confirmée' 
             AND res.date_fin <= NOW() + 1
-            AND res.feedback_id IS NULL 
+            AND res.feedback_id IS NULL
+            AND res.is_feedbackable = 0
         ORDER BY res.date_fin ASC
      * @return Reservation
      */
