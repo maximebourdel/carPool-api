@@ -7,9 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Feedback
  *
- * @ORM\Table(name="feedback")
+ * @ORM\Table(name="feedback", options={"comment":"Table listant les retours à la fin des réservations (Feedbacks)"})
  * @ORM\Entity(repositoryClass="MainBundle\Repository\FeedbackRepository")
- */
+ *
+ * @package MainBundle\Entity
+ * @author Maxime Bourdel
+ *  */
 class Feedback
 {
     /**
