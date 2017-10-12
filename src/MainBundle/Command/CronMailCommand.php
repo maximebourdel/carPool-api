@@ -44,7 +44,7 @@ class CronMailCommand extends ContainerAwareCommand
         foreach ($reservations as $reservation){
             //Stockage du mail dans le spool
             $mailManager = new MailManager($this->getContainer());
-            $mailManager->sendMailDateFinDepasseeReservation($reservation);
+            $mailManager->sendMailDemandeFeedback($reservation);
             //On met à true pour que le mail ne soit pas envoyé plusieurs fois 
             //et que l'utilisateur aie le droit de replir sont feedback
             $reservation->setIsFeedbackable(true);

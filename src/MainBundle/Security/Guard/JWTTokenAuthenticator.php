@@ -2,8 +2,6 @@
 
 namespace MainBundle\Security\Guard;
 
-use MainBundle\Entity\Admin;
-
 use Lexik\Bundle\JWTAuthenticationBundle\Security\Guard\JWTTokenAuthenticator as BaseAuthenticator;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;

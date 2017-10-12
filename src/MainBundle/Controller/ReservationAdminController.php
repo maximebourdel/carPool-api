@@ -11,6 +11,9 @@ use MainBundle\Service\Mailer\MailManager;
 //Ne pas supprimer sont utilisés dans les annotations
 use FOS\RestBundle\Controller\Annotations as Rest;
 use  Nelmio\ApiDocBundle\Annotation\ApiDoc;
+//Pour définir les routes
+use FOS\RestBundle\Controller\Annotations\Get;
+use FOS\RestBundle\Controller\Annotations\Put;
 
 /**
  * Controller pour les réservations en mode Admin
@@ -27,10 +30,11 @@ class ReservationAdminController extends FOSRestController {
      * @Rest\View()
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException 
+     * @Get("/reservation/all")
      */
-    public function getReservationAllAction()
+    public function getAllReservationAllAction()
     {
-        //retourne la liste complète
+        //retourne la liste complète des réservation
         return $this->getDoctrine()
                     ->getRepository('MainBundle:Reservation')
                     ->findBy([], ['dateCreation' => 'DESC']);
@@ -51,8 +55,9 @@ class ReservationAdminController extends FOSRestController {
      * @Rest\View()
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @Put("/reservation/changeStatus")
      */
-    public function putReservationStatutAction(Request $request)
+    public function changeStatutReservationAction(Request $request)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
@@ -72,21 +77,4 @@ class ReservationAdminController extends FOSRestController {
         
         return $updateReservation ;
     }
-
-    /**
-     * @ApiDoc(
-     *  description="Envoie un mail aux personnes ayant reservation confirmée et n'ayant pas validé le formulaire pour terminer"
-     * )
-     * @Rest\View()
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException 
-     */
-    public function envoiMailsResaTerminee()
-    {
-        return $this->getDoctrine()
-                    ->getRepository('MainBundle:Reservation')
-                    ->findAll();
-    }
-    
-    
 }

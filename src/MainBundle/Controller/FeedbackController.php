@@ -3,7 +3,6 @@
 namespace MainBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Routing\ClassResourceInterface;
 
 use Symfony\Component\HttpFoundation\Request;
 
@@ -17,6 +16,8 @@ use MainBundle\Service\BoardNormalizer;
 //Ne pas supprimer sont utilisés dans les annotations
 use FOS\RestBundle\Controller\Annotations as Rest;
 use  Nelmio\ApiDocBundle\Annotation\ApiDoc;
+//Pour définir les routes
+use FOS\RestBundle\Controller\Annotations\Post;
 
 /**
  * Controller pour les Feedbacks
@@ -41,8 +42,9 @@ class FeedbackController extends FOSRestController
      * @Rest\View()
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @Post("/feedback/create")
      */
-    public function postFeedbackAction(Request $request)
+    public function createFeedbackAction(Request $request)
     {
         //Initialisation du Serializer
         $encoder = new JsonEncoder();
@@ -72,6 +74,8 @@ class FeedbackController extends FOSRestController
         //Modification des propriétés du feedback
         //On l'affecte a l'objet Feedback que l'on vient de creer
         $newFeedback->setReservation($reservarationInDB);
+        $newFeedback->setDateCreation(new \DateTime());
+        $newFeedback->setDateDerMaj(new \DateTime());
         
         //On insere puis on commit
         $em = $this->getDoctrine()->getEntityManager();

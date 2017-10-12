@@ -42,6 +42,20 @@ class Feedback
      * @ORM\Column(name="commentaires", type="text", nullable=true, options={"comment":"Commentaire sur la réservation ou le véhicule"})
      */
     private $commentaires;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_creation", type="datetime", options={"comment":"Champ technique permettant d'enregistrer la date de d'insertion de la ligne"})
+     */
+    private $dateCreation;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_der_maj", type="datetime", options={"comment":"Champ technique permettant d'enregistrer la date de dernière modification de la ligne"})
+     */
+    private $dateDerMaj;    
 
     /**
      * Get id
@@ -54,7 +68,7 @@ class Feedback
     }
     
     /**
-     * Set vehicule
+     * Set reservation
      *
      * @param \MainBundle\Entity\Reservation $reservation
      *
@@ -63,7 +77,6 @@ class Feedback
     public function setReservation($reservation)
     {
         $this->reservation = $reservation;
-
         return $this;
     }      
     
@@ -124,5 +137,54 @@ class Feedback
     {
         return $this->commentaires;
     }
+    
+    /**
+     * Set dateCreation
+     *
+     * @param \DateTime $dateCreation
+     *
+     * @return Reservation
+     */
+    public function setDateCreation($dateCreation)
+    {
+        $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCreation
+     *
+     * @return \DateTime
+     */
+    public function getDateCreation()
+    {
+        return $this->dateCreation;
+    }    
+    
+    /**
+     * Set dateDerMaj
+     *
+     * @param \DateTime $dateDerMaj
+     *
+     * @return Reservation
+     */
+    public function setDateDerMaj($dateDerMaj)
+    {
+        $this->dateDerMaj = $dateDerMaj;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDerMaj
+     *
+     * @return \DateTime
+     */
+    public function getDateDerMaj()
+    {
+        return $this->dateDerMaj;
+    }    
+    
 }
 

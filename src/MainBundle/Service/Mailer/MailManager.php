@@ -91,9 +91,10 @@ class MailManager
     /**
      * Envoie un mail aux utilisateurs remplissant les conditions suivantes :
      * avoir une réservation confirmée donc la date de fin est inférieure ou égale à sysdate-1 
+     * Afin qu'ils remplissent le formulaire de feedback
      * @return Array Liste des admin ex : ['adr1','adr2']
      */
-    function sendMailDateFinDepasseeReservation (Reservation $reservation){
+    function sendMailDemandeFeedback (Reservation $reservation){
         
         $message = (new \Swift_Message('Comment s\'est passée votre réservation terminée le  '. $reservation->getDateFin()->format('d/m/Y').' ?'))
             ->setFrom('carpool@businessdecision.com')
@@ -102,7 +103,7 @@ class MailManager
             ->setBody(
                $this->templating->render(
                     // app/Resources/views/Emails/reservation_depassee.html.twig
-                    'Emails/reservation_depassee.html.twig',
+                    'Emails/demande_feedback.html.twig',
                     array('reservation' => $reservation)
                 ),
                 'text/html'

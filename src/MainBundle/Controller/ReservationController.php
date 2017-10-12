@@ -3,7 +3,6 @@
 namespace MainBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Routing\ClassResourceInterface;
 
 use Symfony\Component\HttpFoundation\Request;
 
@@ -19,15 +18,18 @@ use MainBundle\Service\BoardNormalizer;
 //Ne pas supprimer sont utilisés dans les annotations
 use FOS\RestBundle\Controller\Annotations as Rest;
 use  Nelmio\ApiDocBundle\Annotation\ApiDoc;
+//Pour définir les routes
+use FOS\RestBundle\Controller\Annotations\Post;
+use FOS\RestBundle\Controller\Annotations\Get;
+use FOS\RestBundle\Controller\Annotations\Put;
 
 /**
  * Controller pour les réservations
  * @package MainBundle\Controller
  * @author Maxime Bourdel
  */
-class ReservationController extends FOSRestController implements ClassResourceInterface
+class ReservationController extends FOSRestController
 {
-
     /**
      * @ApiDoc(
      *  description="Retourne une réservation pour un utilisateur"
@@ -35,7 +37,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      *      {
      *          "name"="id",
      *          "dataType"="int",
-     *          "description"="Paramètres représentant l'id de la réservation désirée ex : 12"
+     *          "description"="Paramètres représentant l'id de la réservation désirée ainsi que le token ex : {'token':'entrezvotretoken', 'id':12]"
      *      }
      *  }
      *  , output="MainBundle\Entity\Reservation"
@@ -43,13 +45,29 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      * @Rest\View()
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @Post("/reservation/get")
      */
-    public function getAction(int $id)
+    public function getMyReservationAction(Request $request)
     {
+        //On récupère le token en request
+        $values = json_decode($request->getContent(), true);
+        //On décode le token pour récupérer les informations du user
+        $decoder = $this->get('lexik_jwt_authentication.encoder.default');
+        $payload = $decoder->decode($values['token']);
+        
+        $reservation = $this->getDoctrine()
+                    ->getRepository('MainBundle:Reservation')
+                    ->find($values['reservation_id']);
+        
+        //On vérifie que le user est le bon
+        if ($reservation->getEmail() != $payload['username']) {
+            throw new \InvalidArgumentException('Ce user n\'as pas les droits');
+        } 
+        
         //retourne une réservation
         return $this->getDoctrine()
                     ->getRepository('MainBundle:Reservation')
-                    ->find($id);
+                    ->find($values['reservation_id']);
     }    
     
     /**
@@ -59,7 +77,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      *      {
      *          "name"="request",
      *          "dataType"="Symfony\Component\HttpFoundation\Request",
-     *          "description"="Paramètres représentant l'email de l'utilisateur statut ex : {email: 'maximebourdel@businessdecision.com'}"
+     *          "description"="Paramètres représentant le token de l'utilisateur statut ex : entrezvotretoken"
      *      }
      *  }
      *  , output={ "class"=Reservation::class, "collection"=true }
@@ -67,15 +85,20 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      * @Rest\View()
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @Post("/reservation/mylist")
      */
-    public function postMyListAction(Request $request)
+    public function getMyListReservationsAction(Request $request)
     {
-        $email = $request->getContent();
-
+        //On récupère le token en request
+        $token = $request->getContent();
+        //On décode le token pour récupérer les informations du user
+        $decoder = $this->get('lexik_jwt_authentication.encoder.default');
+        $payload = $decoder->decode($token);
+        
         //retourne la liste complète
         return $this->getDoctrine()
                     ->getRepository('MainBundle:Reservation')
-                    ->findMyReservations($email);
+                    ->findMyReservations($payload['username']);
     }
 
     /**
@@ -93,18 +116,19 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      * @Rest\View()
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @Put("/reservation/cancel")
      */
-    public function putCancelAction(Request $request)
+    public function putCancelReservationAction(Request $request)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
         $jsonResponse = json_decode($request->getContent(), true);
 
         $reservation = $this->getDoctrine()->getRepository('MainBundle:Reservation')->find($jsonResponse['id']);
-        //Mise à jour de la date
-        $reservation->setDateDerMaj(new \DateTime());
         
-        $updateReservation = $reservation->setStatut('Annulée');
+        //Mise à jour de la date et du statut
+        $reservation->setDateDerMaj(new \DateTime());
+        $reservation->setStatut('Annulée');
         
         $em->flush();
         
@@ -112,7 +136,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
         $mailManager = new MailManager($this->container);
         $mailManager->sendMailToAdminAnnulationReservation($reservation); 
         
-        return $updateReservation ;
+        return $reservation ;
     }
     
     /**
@@ -122,6 +146,7 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      * @Rest\View()
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @Get("/reservation/sumdaybyday")
      */
     public function getSumdaybydayAction()
     {
@@ -146,8 +171,9 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      * @Rest\View()
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @Post("reservation/creneauxbyanneemois")
      */
-    public function postCreneauxbyanneemoisAction(Request $request)
+    public function getCreneauxbyanneemoisAction(Request $request)
     {
         $jsonResponse = json_decode($request->getContent(), true);
         
@@ -172,8 +198,9 @@ class ReservationController extends FOSRestController implements ClassResourceIn
      * @Rest\View()
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @Post("/reservation/create")
      */
-    public function postAction(Request $request)
+    public function createReservationAction(Request $request)
     {
         //Initialisation du Serializer
         $encoder = new JsonEncoder();
