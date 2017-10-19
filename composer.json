@@ -43,6 +43,8 @@
         "beberlei/doctrineextensions": "^1.0"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^2.4",
+        "phpunit/phpunit": "^6.2",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0"
     },
