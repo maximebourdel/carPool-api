@@ -25,6 +25,11 @@ class Vehicule
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Reservation", mappedBy="vehicule")
+     */
+    private $reservations;    
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="immatriculation", type="string", length=9, unique=true, options={"comment":"Clé unique représentant l'immatriculation du vehicule"})
@@ -86,11 +91,6 @@ class Vehicule
      * @ORM\Column(name="derniere_revision", type="string", length=100, options={"comment":"Date de dernière révision du véhicule au garage"})
      */
     private $derniereRevision;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Reservation", mappedBy="vehicule")
-     */
-    private $reservations;
 
     /**
      * Get id
@@ -101,6 +101,24 @@ class Vehicule
     {
         return $this->id;
     }
+    
+    /**
+     * Ajouter une nouvelle Reservation
+     * 
+     * @param \MainBundle\Entity\Reservation $reservation
+     */
+    public function addVehicule(\MainBundle\Entity\Reservation $reservation)	{
+        $this->reservations[] = $reservation;
+    }
+
+    /**
+     * Enlever une Reservation existante
+     * 
+     * @param \MainBundle\Entity\Reservation $reservation
+     */
+    public function removeVehicule(\MainBundle\Entity\Reservation $reservation)	{
+        $this->reservations->removeElement($reservation);
+    }    
 
     /**
      * Set immatriculation
@@ -317,24 +335,4 @@ class Vehicule
     {
         return $this->derniereRevision;
     }    
-    
-    /**
-     * Ajouter une nouvelle Reservation
-     * 
-     * @param \MainBundle\Entity\Reservation $reservation
-     */
-    public function addVehicule(\MainBundle\Entity\Reservation $reservation)	{
-        $this->reservations[] = $reservation;
-    }
-
-    /**
-     * Enlever une Reservation existante
-     * 
-     * @param \MainBundle\Entity\Reservation $reservation
-     */
-    public function removeVehicule(\MainBundle\Entity\Reservation $reservation)	{
-        $this->reservations->removeElement($reservation);
-    }
-    
 }
-

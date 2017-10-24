@@ -138,23 +138,6 @@ class ReservationController extends FOSRestController
         
         return $reservation ;
     }
-    
-    /**
-     *  description="Retourne une liste de Reservation"
-     *  , output={ "class"=Reservation::class, "collection"=true }
-     * )
-     * @Rest\View()
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     * @Get("/reservation/sumdaybyday")
-     */
-    public function getSumdaybydayAction()
-    {
-        //Retourne la liste complète
-        return $this->getDoctrine()
-                    ->getRepository('MainBundle:Reservation')
-                    ->findSumReservationsDayByDay();
-    }
 
     /**
      * @ApiDoc(

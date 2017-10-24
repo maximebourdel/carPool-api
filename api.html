@@ -772,6 +772,139 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>vehicule[reservations][]</td>
+                            <td>array of objects (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][vehicule]</td>
+                            <td>object (Vehicule)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback]</td>
+                            <td>object (Feedback)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][reservation]</td>
+                            <td>object (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][kilometres]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][commentaires]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][email]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][nom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][prenom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_debut]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_fin]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][statut]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>vehicule[immatriculation]</td>
                             <td>string</td>
                             <td>*
@@ -830,118 +963,6 @@ form .request-content {
                                             <tr>
                             <td>vehicule[derniere_revision]</td>
                             <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][]</td>
-                            <td>array of objects (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][vehicule]</td>
-                            <td>object (Vehicule)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback]</td>
-                            <td>object (Feedback)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][reservation]</td>
-                            <td>object (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][kilometres]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][commentaires]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][email]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][nom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][prenom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_debut]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_fin]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][statut]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_creation]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_der_maj]</td>
-                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -1031,6 +1052,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>feedback[reservation][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>feedback[reservation][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -1054,6 +1082,20 @@ form .request-content {
                                             <tr>
                             <td>feedback[commentaires]</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[date_der_maj]</td>
+                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -1096,6 +1138,13 @@ form .request-content {
                                             <tr>
                             <td>statut</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>is_feedbackable</td>
+                            <td>boolean</td>
                             <td>*
 </td>
                             <td></td>
@@ -1212,8 +1261,8 @@ form .request-content {
                     </div>
     </div>
 </li>
-                                                            <li class="put operation" id="put--admin-reservation-statut.{_format}">
-    <div class="heading toggler" data-href="#put--admin-reservation-statut.{_format}">
+                                                            <li class="put operation" id="put--admin-reservation-changeStatus.{_format}">
+    <div class="heading toggler" data-href="#put--admin-reservation-changeStatus.{_format}">
         <h3>
             <span class="http_method">
                 <i>PUT</i>
@@ -1222,7 +1271,7 @@ form .request-content {
             
                         
             <span class="path">
-                /admin/reservation/statut.{_format}
+                /admin/reservation/changeStatus.{_format}
             </span>
                    </h3>
         <ul class="options">
@@ -1310,6 +1359,139 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>vehicule[reservations][]</td>
+                            <td>array of objects (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][vehicule]</td>
+                            <td>object (Vehicule)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback]</td>
+                            <td>object (Feedback)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][reservation]</td>
+                            <td>object (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][kilometres]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][commentaires]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][email]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][nom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][prenom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_debut]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_fin]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][statut]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>vehicule[immatriculation]</td>
                             <td>string</td>
                             <td>*
@@ -1368,118 +1550,6 @@ form .request-content {
                                             <tr>
                             <td>vehicule[derniere_revision]</td>
                             <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][]</td>
-                            <td>array of objects (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][vehicule]</td>
-                            <td>object (Vehicule)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback]</td>
-                            <td>object (Feedback)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][reservation]</td>
-                            <td>object (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][kilometres]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][commentaires]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][email]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][nom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][prenom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_debut]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_fin]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][statut]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_creation]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_der_maj]</td>
-                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -1569,6 +1639,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>feedback[reservation][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>feedback[reservation][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -1592,6 +1669,20 @@ form .request-content {
                                             <tr>
                             <td>feedback[commentaires]</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[date_der_maj]</td>
+                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -1639,6 +1730,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>is_feedbackable</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>date_creation</td>
                             <td>DateTime</td>
                             <td>*
@@ -1660,7 +1758,7 @@ form .request-content {
             </div>
 
                             <div class="pane sandbox">
-                                            <form method="" action="/admin/reservation/statut.{_format}">
+                                            <form method="" action="/admin/reservation/changeStatus.{_format}">
                             <fieldset class="parameters">
                                 <legend>Input</legend>
                                                                     <h4>Requirements</h4>
@@ -1840,69 +1938,6 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
-                            <td>[][immatriculation]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][ville]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][date_premiere_immatriculation]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][date_arrivee_vehicule_bd]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][type_acquisition]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][nom_responsable]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][marque]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][kilometrage]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][derniere_revision]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
                             <td>[][reservations][]</td>
                             <td>array of objects (Reservation)</td>
                             <td>*
@@ -1926,6 +1961,13 @@ form .request-content {
                                             <tr>
                             <td>[][reservations][][vehicule][id]</td>
                             <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][reservations][][vehicule][reservations][]</td>
+                            <td>array of objects (Reservation)</td>
                             <td>*
 </td>
                             <td></td>
@@ -1994,13 +2036,6 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
-                            <td>[][reservations][][vehicule][reservations][]</td>
-                            <td>array of objects (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
                             <td>[][reservations][][feedback]</td>
                             <td>object (Feedback)</td>
                             <td>*
@@ -2031,6 +2066,20 @@ form .request-content {
                                             <tr>
                             <td>[][reservations][][feedback][commentaires]</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][reservations][][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][reservations][][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -2078,6 +2127,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>[][reservations][][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>[][reservations][][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -2087,6 +2143,69 @@ form .request-content {
                                             <tr>
                             <td>[][reservations][][date_der_maj]</td>
                             <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][immatriculation]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][ville]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][date_premiere_immatriculation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][date_arrivee_vehicule_bd]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][type_acquisition]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][nom_responsable]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][marque]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][kilometrage]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][derniere_revision]</td>
+                            <td>string</td>
                             <td>*
 </td>
                             <td></td>
@@ -2273,69 +2392,6 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
-                            <td>immatriculation</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>ville</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>date_premiere_immatriculation</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>date_arrivee_vehicule_bd</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>type_acquisition</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>nom_responsable</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>marque</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>kilometrage</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>derniere_revision</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
                             <td>reservations[]</td>
                             <td>array of objects (Reservation)</td>
                             <td>*
@@ -2359,6 +2415,13 @@ form .request-content {
                                             <tr>
                             <td>reservations[][vehicule][id]</td>
                             <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservations[][vehicule][reservations][]</td>
+                            <td>array of objects (Reservation)</td>
                             <td>*
 </td>
                             <td></td>
@@ -2427,13 +2490,6 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
-                            <td>reservations[][vehicule][reservations][]</td>
-                            <td>array of objects (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
                             <td>reservations[][feedback]</td>
                             <td>object (Feedback)</td>
                             <td>*
@@ -2464,6 +2520,20 @@ form .request-content {
                                             <tr>
                             <td>reservations[][feedback][commentaires]</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservations[][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservations[][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -2511,6 +2581,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>reservations[][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>reservations[][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -2520,6 +2597,69 @@ form .request-content {
                                             <tr>
                             <td>reservations[][date_der_maj]</td>
                             <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>immatriculation</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>ville</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>date_premiere_immatriculation</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>date_arrivee_vehicule_bd</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>type_acquisition</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>nom_responsable</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>marque</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>kilometrage</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>derniere_revision</td>
+                            <td>string</td>
                             <td>*
 </td>
                             <td></td>
@@ -2551,6 +2691,430 @@ form .request-content {
 
                             <fieldset class="headers">
                                                                                                     <input type="hidden" name="header_method" value="GET" />
+                                
+                                <legend>Headers</legend>
+
+                                
+                                
+                                <p class="tuple">
+                                    <input type="text" class="key" placeholder="Key" />
+                                    <span>=</span>
+                                    <input type="text" class="value" placeholder="Value" /> <span class="remove">-</span>
+                                </p>
+
+                                <button type="button" class="add_header">New header</button>
+                            </fieldset>
+
+                            <fieldset class="request-content">
+                                <legend>Content</legend>
+
+                                <textarea class="content" placeholder="Content set here will override the parameters that do not match the url"></textarea>
+
+                                <p class="tuple">
+                                    <input type="text" class="key content-type" value="Content-Type" disabled="disabled" />
+                                    <span>=</span>
+                                    <input type="text" class="value" placeholder="Value" />
+                                    <button  type="button" class="set-content-type">Set header</button> <small>Replaces header if set</small>
+                                </p>
+                            </fieldset>
+
+                            <div class="buttons">
+                                <input type="submit" value="Try!" />
+                            </div>
+                        </form>
+
+                        <script type="text/x-tmpl" class="parameters_tuple_template">
+                        <p class="tuple">
+                            <input type="text" class="key" placeholder="Key" />
+                            <span>=</span>
+                            <select class="tuple_type">
+                                                <option value="">Type</option>
+                                                <option value="string">String</option>
+                                                <option value="boolean">Boolean</option>
+                                                <option value="file">File</option>
+                                                <option value="textarea">Textarea</option>
+                                            </select>
+                            <input type="text" class="value" placeholder="Value" /> <span class="remove">-</span>
+                        </p>
+                        </script>
+
+                        <script type="text/x-tmpl" class="headers_tuple_template">
+                        <p class="tuple">
+                            <input type="text" class="key" placeholder="Key" />
+                            <span>=</span>
+                            <input type="text" class="value" placeholder="Value" /> <span class="remove">-</span>
+                        </p>
+                        </script>
+
+
+                        <div class="result">
+                            <h4>Request URL</h4>
+                            <pre class="url"></pre>
+
+                            <h4 class="request-body-header">Request body</h4>
+                            <pre class="request-body"></pre>
+
+                            <h4>Response Headers&nbsp;<small>[<a href="" class="to-expand">Expand</a>]</small>&nbsp;<small class="profiler">[<a href="" class="profiler-link" target="_blank">Profiler</a>]</small></h4>
+                            <pre class="headers to-expand"></pre>
+
+                            <h4>Response Body&nbsp;<small>[<a href="" class="to-raw">Raw</a>]</small></h4>
+                            <pre class="response prettyprint"></pre>
+
+                            <h4>Curl Command Line</h4>
+                            <pre class="curl-command"></pre>
+                        </div>
+                                    </div>
+                    </div>
+    </div>
+</li>
+                                                            <li class="post operation" id="post--auth-feedback-create.{_format}">
+    <div class="heading toggler" data-href="#post--auth-feedback-create.{_format}">
+        <h3>
+            <span class="http_method">
+                <i>POST</i>
+            </span>
+
+            
+                        
+            <span class="path">
+                /auth/feedback/create.{_format}
+            </span>
+                   </h3>
+        <ul class="options">
+                            <li>Crée une reservation en fonction du JSON reçu</li>
+                    </ul>
+    </div>
+
+    <div class="content" style="display: none;">
+        <ul class="tabs">
+                            <li class="selected" data-pane="content">Documentation</li>
+                <li data-pane="sandbox">Sandbox</li>
+                    </ul>
+
+        <div class="panes">
+            <div class="pane content selected">
+            
+            
+                            <h4>Requirements</h4>
+                <table class="fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Requirement</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                                    <tr>
+                                <td>request</td>
+                                <td></td>
+                                <td>Symfony\Component\HttpFoundation\Request</td>
+                                <td>Request contenant un objet Feedback</td>
+                            </tr>
+                                                    <tr>
+                                <td>_format</td>
+                                <td>json|xml|html</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                                            </tbody>
+                </table>
+            
+            
+            
+
+            
+                            <h4>Return</h4>
+                <table class='fullwidth'>
+                    <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Versions</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>
+                                    200
+                                                                    </h4>
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>id</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation</td>
+                            <td>object (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule]</td>
+                            <td>object (Vehicule)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][reservations][]</td>
+                            <td>array of objects (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][immatriculation]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][ville]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][date_premiere_immatriculation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][date_arrivee_vehicule_bd]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][type_acquisition]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][nom_responsable]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][marque]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][kilometrage]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[vehicule][derniere_revision]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[feedback]</td>
+                            <td>object (Feedback)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[feedback][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[feedback][reservation]</td>
+                            <td>object (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[feedback][kilometres]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[feedback][commentaires]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[feedback][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[email]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[nom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[prenom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[date_debut]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[date_fin]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[statut]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservation[date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>kilometres</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>commentaires</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>date_creation</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>date_der_maj</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                        </tbody>
+                                </table>
+            
+            
+            
+            </div>
+
+                            <div class="pane sandbox">
+                                            <form method="" action="/auth/feedback/create.{_format}">
+                            <fieldset class="parameters">
+                                <legend>Input</legend>
+                                                                    <h4>Requirements</h4>
+                                                                            <p class="tuple">
+                                            <input type="text" class="key" value="request" placeholder="Key" />
+                                            <span>=</span>
+                                            <input type="text" class="value" placeholder="Request contenant un objet Feedback" /> <span class="remove">-</span>
+                                        </p>
+                                                                            <p class="tuple">
+                                            <input type="text" class="key" value="_format" placeholder="Key" />
+                                            <span>=</span>
+                                            <input type="text" class="value" placeholder="" /> <span class="remove">-</span>
+                                        </p>
+                                                                                                                                    
+                            </fieldset>
+
+                            <fieldset class="headers">
+                                                                                                    <input type="hidden" name="header_method" value="POST" />
                                 
                                 <legend>Headers</legend>
 
@@ -2725,6 +3289,139 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>vehicule[reservations][]</td>
+                            <td>array of objects (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][vehicule]</td>
+                            <td>object (Vehicule)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback]</td>
+                            <td>object (Feedback)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][reservation]</td>
+                            <td>object (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][kilometres]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][commentaires]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][email]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][nom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][prenom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_debut]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_fin]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][statut]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>vehicule[immatriculation]</td>
                             <td>string</td>
                             <td>*
@@ -2783,118 +3480,6 @@ form .request-content {
                                             <tr>
                             <td>vehicule[derniere_revision]</td>
                             <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][]</td>
-                            <td>array of objects (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][vehicule]</td>
-                            <td>object (Vehicule)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback]</td>
-                            <td>object (Feedback)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][reservation]</td>
-                            <td>object (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][kilometres]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][commentaires]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][email]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][nom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][prenom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_debut]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_fin]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][statut]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_creation]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_der_maj]</td>
-                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -2984,6 +3569,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>feedback[reservation][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>feedback[reservation][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -3007,6 +3599,20 @@ form .request-content {
                                             <tr>
                             <td>feedback[commentaires]</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[date_der_maj]</td>
+                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -3049,6 +3655,13 @@ form .request-content {
                                             <tr>
                             <td>statut</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>is_feedbackable</td>
+                            <td>boolean</td>
                             <td>*
 </td>
                             <td></td>
@@ -3170,8 +3783,8 @@ form .request-content {
                     </div>
     </div>
 </li>
-                                                            <li class="post operation" id="post--auth-reservations.{_format}">
-    <div class="heading toggler" data-href="#post--auth-reservations.{_format}">
+                                                            <li class="post operation" id="post--auth-reservation-create.{_format}">
+    <div class="heading toggler" data-href="#post--auth-reservation-create.{_format}">
         <h3>
             <span class="http_method">
                 <i>POST</i>
@@ -3180,7 +3793,7 @@ form .request-content {
             
                         
             <span class="path">
-                /auth/reservations.{_format}
+                /auth/reservation/create.{_format}
             </span>
                    </h3>
         <ul class="options">
@@ -3268,6 +3881,139 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>vehicule[reservations][]</td>
+                            <td>array of objects (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][vehicule]</td>
+                            <td>object (Vehicule)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback]</td>
+                            <td>object (Feedback)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][reservation]</td>
+                            <td>object (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][kilometres]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][commentaires]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][email]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][nom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][prenom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_debut]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_fin]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][statut]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>vehicule[immatriculation]</td>
                             <td>string</td>
                             <td>*
@@ -3326,118 +4072,6 @@ form .request-content {
                                             <tr>
                             <td>vehicule[derniere_revision]</td>
                             <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][]</td>
-                            <td>array of objects (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][vehicule]</td>
-                            <td>object (Vehicule)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback]</td>
-                            <td>object (Feedback)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][reservation]</td>
-                            <td>object (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][kilometres]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][feedback][commentaires]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][email]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][nom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][prenom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_debut]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_fin]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][statut]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_creation]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>vehicule[reservations][][date_der_maj]</td>
-                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -3527,6 +4161,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>feedback[reservation][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>feedback[reservation][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -3550,6 +4191,20 @@ form .request-content {
                                             <tr>
                             <td>feedback[commentaires]</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[date_der_maj]</td>
+                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -3597,6 +4252,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>is_feedbackable</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>date_creation</td>
                             <td>DateTime</td>
                             <td>*
@@ -3618,7 +4280,7 @@ form .request-content {
             </div>
 
                             <div class="pane sandbox">
-                                            <form method="" action="/auth/reservations.{_format}">
+                                            <form method="" action="/auth/reservation/create.{_format}">
                             <fieldset class="parameters">
                                 <legend>Input</legend>
                                                                     <h4>Requirements</h4>
@@ -3713,8 +4375,8 @@ form .request-content {
                     </div>
     </div>
 </li>
-                                                            <li class="post operation" id="post--auth-reservations-creneauxbyanneemois.{_format}">
-    <div class="heading toggler" data-href="#post--auth-reservations-creneauxbyanneemois.{_format}">
+                                                            <li class="post operation" id="post--auth-reservation-creneauxbyanneemois.{_format}">
+    <div class="heading toggler" data-href="#post--auth-reservation-creneauxbyanneemois.{_format}">
         <h3>
             <span class="http_method">
                 <i>POST</i>
@@ -3723,7 +4385,7 @@ form .request-content {
             
                         
             <span class="path">
-                /auth/reservations/creneauxbyanneemois.{_format}
+                /auth/reservation/creneauxbyanneemois.{_format}
             </span>
                    </h3>
         <ul class="options">
@@ -3818,6 +4480,139 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>[][vehicule][reservations][]</td>
+                            <td>array of objects (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][vehicule]</td>
+                            <td>object (Vehicule)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback]</td>
+                            <td>object (Feedback)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][reservation]</td>
+                            <td>object (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][kilometres]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][commentaires]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][email]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][nom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][prenom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][date_debut]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][date_fin]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][statut]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>[][vehicule][immatriculation]</td>
                             <td>string</td>
                             <td>*
@@ -3876,118 +4671,6 @@ form .request-content {
                                             <tr>
                             <td>[][vehicule][derniere_revision]</td>
                             <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][]</td>
-                            <td>array of objects (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][vehicule]</td>
-                            <td>object (Vehicule)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][feedback]</td>
-                            <td>object (Feedback)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][feedback][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][feedback][reservation]</td>
-                            <td>object (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][feedback][kilometres]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][feedback][commentaires]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][email]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][nom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][prenom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][date_debut]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][date_fin]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][statut]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][date_creation]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][date_der_maj]</td>
-                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -4077,6 +4760,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>[][feedback][reservation][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>[][feedback][reservation][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -4100,6 +4790,20 @@ form .request-content {
                                             <tr>
                             <td>[][feedback][commentaires]</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -4147,6 +4851,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>[][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>[][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -4168,7 +4879,7 @@ form .request-content {
             </div>
 
                             <div class="pane sandbox">
-                                            <form method="" action="/auth/reservations/creneauxbyanneemois.{_format}">
+                                            <form method="" action="/auth/reservation/creneauxbyanneemois.{_format}">
                             <fieldset class="parameters">
                                 <legend>Input</legend>
                                                                     <h4>Requirements</h4>
@@ -4263,8 +4974,8 @@ form .request-content {
                     </div>
     </div>
 </li>
-                                                            <li class="post operation" id="post--auth-reservations-mies-lists.{_format}">
-    <div class="heading toggler" data-href="#post--auth-reservations-mies-lists.{_format}">
+                                                            <li class="post operation" id="post--auth-reservation-get.{_format}">
+    <div class="heading toggler" data-href="#post--auth-reservation-get.{_format}">
         <h3>
             <span class="http_method">
                 <i>POST</i>
@@ -4273,7 +4984,599 @@ form .request-content {
             
                         
             <span class="path">
-                /auth/reservations/mies/lists.{_format}
+                /auth/reservation/get.{_format}
+            </span>
+                   </h3>
+        <ul class="options">
+                            <li>Retourne une réservation pour un utilisateur</li>
+                    </ul>
+    </div>
+
+    <div class="content" style="display: none;">
+        <ul class="tabs">
+                            <li class="selected" data-pane="content">Documentation</li>
+                <li data-pane="sandbox">Sandbox</li>
+                    </ul>
+
+        <div class="panes">
+            <div class="pane content selected">
+            
+            
+                            <h4>Requirements</h4>
+                <table class="fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Requirement</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                                    <tr>
+                                <td>id</td>
+                                <td></td>
+                                <td>int</td>
+                                <td>Paramètres représentant l&#039;id de la réservation désirée ainsi que le token ex : {&#039;token&#039;:&#039;entrezvotretoken&#039;, &#039;id&#039;:12]</td>
+                            </tr>
+                                                    <tr>
+                                <td>_format</td>
+                                <td>json|xml|html</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                                            </tbody>
+                </table>
+            
+            
+            
+
+            
+                            <h4>Return</h4>
+                <table class='fullwidth'>
+                    <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Versions</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>
+                                    200
+                                                                    </h4>
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>id</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule</td>
+                            <td>object (Vehicule)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][]</td>
+                            <td>array of objects (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][vehicule]</td>
+                            <td>object (Vehicule)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback]</td>
+                            <td>object (Feedback)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][reservation]</td>
+                            <td>object (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][kilometres]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][commentaires]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][email]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][nom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][prenom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_debut]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_fin]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][statut]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[reservations][][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[immatriculation]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[ville]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[date_premiere_immatriculation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[date_arrivee_vehicule_bd]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[type_acquisition]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[nom_responsable]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[marque]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[kilometrage]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>vehicule[derniere_revision]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback</td>
+                            <td>object (Feedback)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation]</td>
+                            <td>object (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][vehicule]</td>
+                            <td>object (Vehicule)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][feedback]</td>
+                            <td>object (Feedback)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][email]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][nom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][prenom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][date_debut]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][date_fin]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][statut]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[reservation][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[kilometres]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[commentaires]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>feedback[date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>email</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>nom</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>prenom</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>date_debut</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>date_fin</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>statut</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>is_feedbackable</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>date_creation</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>date_der_maj</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                        </tbody>
+                                </table>
+            
+            
+            
+            </div>
+
+                            <div class="pane sandbox">
+                                            <form method="" action="/auth/reservation/get.{_format}">
+                            <fieldset class="parameters">
+                                <legend>Input</legend>
+                                                                    <h4>Requirements</h4>
+                                                                            <p class="tuple">
+                                            <input type="text" class="key" value="id" placeholder="Key" />
+                                            <span>=</span>
+                                            <input type="text" class="value" placeholder="Paramètres représentant l&#039;id de la réservation désirée ainsi que le token ex : {&#039;token&#039;:&#039;entrezvotretoken&#039;, &#039;id&#039;:12]" /> <span class="remove">-</span>
+                                        </p>
+                                                                            <p class="tuple">
+                                            <input type="text" class="key" value="_format" placeholder="Key" />
+                                            <span>=</span>
+                                            <input type="text" class="value" placeholder="" /> <span class="remove">-</span>
+                                        </p>
+                                                                                                                                    
+                            </fieldset>
+
+                            <fieldset class="headers">
+                                                                                                    <input type="hidden" name="header_method" value="POST" />
+                                
+                                <legend>Headers</legend>
+
+                                
+                                
+                                <p class="tuple">
+                                    <input type="text" class="key" placeholder="Key" />
+                                    <span>=</span>
+                                    <input type="text" class="value" placeholder="Value" /> <span class="remove">-</span>
+                                </p>
+
+                                <button type="button" class="add_header">New header</button>
+                            </fieldset>
+
+                            <fieldset class="request-content">
+                                <legend>Content</legend>
+
+                                <textarea class="content" placeholder="Content set here will override the parameters that do not match the url"></textarea>
+
+                                <p class="tuple">
+                                    <input type="text" class="key content-type" value="Content-Type" disabled="disabled" />
+                                    <span>=</span>
+                                    <input type="text" class="value" placeholder="Value" />
+                                    <button  type="button" class="set-content-type">Set header</button> <small>Replaces header if set</small>
+                                </p>
+                            </fieldset>
+
+                            <div class="buttons">
+                                <input type="submit" value="Try!" />
+                            </div>
+                        </form>
+
+                        <script type="text/x-tmpl" class="parameters_tuple_template">
+                        <p class="tuple">
+                            <input type="text" class="key" placeholder="Key" />
+                            <span>=</span>
+                            <select class="tuple_type">
+                                                <option value="">Type</option>
+                                                <option value="string">String</option>
+                                                <option value="boolean">Boolean</option>
+                                                <option value="file">File</option>
+                                                <option value="textarea">Textarea</option>
+                                            </select>
+                            <input type="text" class="value" placeholder="Value" /> <span class="remove">-</span>
+                        </p>
+                        </script>
+
+                        <script type="text/x-tmpl" class="headers_tuple_template">
+                        <p class="tuple">
+                            <input type="text" class="key" placeholder="Key" />
+                            <span>=</span>
+                            <input type="text" class="value" placeholder="Value" /> <span class="remove">-</span>
+                        </p>
+                        </script>
+
+
+                        <div class="result">
+                            <h4>Request URL</h4>
+                            <pre class="url"></pre>
+
+                            <h4 class="request-body-header">Request body</h4>
+                            <pre class="request-body"></pre>
+
+                            <h4>Response Headers&nbsp;<small>[<a href="" class="to-expand">Expand</a>]</small>&nbsp;<small class="profiler">[<a href="" class="profiler-link" target="_blank">Profiler</a>]</small></h4>
+                            <pre class="headers to-expand"></pre>
+
+                            <h4>Response Body&nbsp;<small>[<a href="" class="to-raw">Raw</a>]</small></h4>
+                            <pre class="response prettyprint"></pre>
+
+                            <h4>Curl Command Line</h4>
+                            <pre class="curl-command"></pre>
+                        </div>
+                                    </div>
+                    </div>
+    </div>
+</li>
+                                                            <li class="post operation" id="post--auth-reservation-mylist.{_format}">
+    <div class="heading toggler" data-href="#post--auth-reservation-mylist.{_format}">
+        <h3>
+            <span class="http_method">
+                <i>POST</i>
+            </span>
+
+            
+                        
+            <span class="path">
+                /auth/reservation/mylist.{_format}
             </span>
                    </h3>
         <ul class="options">
@@ -4306,7 +5609,7 @@ form .request-content {
                                 <td>request</td>
                                 <td></td>
                                 <td>Symfony\Component\HttpFoundation\Request</td>
-                                <td>Paramètres représentant l&#039;email de l&#039;utilisateur statut ex : {email: &#039;maximebourdel@businessdecision.com&#039;}</td>
+                                <td>Paramètres représentant le token de l&#039;utilisateur statut ex : entrezvotretoken</td>
                             </tr>
                                                     <tr>
                                 <td>_format</td>
@@ -4363,6 +5666,139 @@ form .request-content {
                                             <tr>
                             <td>[][vehicule][id]</td>
                             <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][]</td>
+                            <td>array of objects (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][vehicule]</td>
+                            <td>object (Vehicule)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback]</td>
+                            <td>object (Feedback)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][id]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][reservation]</td>
+                            <td>object (Reservation)</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][kilometres]</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][commentaires]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][email]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][nom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][prenom]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][date_debut]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][date_fin]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][statut]</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][vehicule][reservations][][date_der_maj]</td>
+                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -4426,118 +5862,6 @@ form .request-content {
                                             <tr>
                             <td>[][vehicule][derniere_revision]</td>
                             <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][]</td>
-                            <td>array of objects (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][vehicule]</td>
-                            <td>object (Vehicule)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][feedback]</td>
-                            <td>object (Feedback)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][feedback][id]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][feedback][reservation]</td>
-                            <td>object (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][feedback][kilometres]</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][feedback][commentaires]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][email]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][nom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][prenom]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][date_debut]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][date_fin]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][statut]</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][date_creation]</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>[][vehicule][reservations][][date_der_maj]</td>
-                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -4627,6 +5951,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>[][feedback][reservation][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>[][feedback][reservation][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -4650,6 +5981,20 @@ form .request-content {
                                             <tr>
                             <td>[][feedback][commentaires]</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>[][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -4697,6 +6042,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>[][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>[][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -4718,14 +6070,14 @@ form .request-content {
             </div>
 
                             <div class="pane sandbox">
-                                            <form method="" action="/auth/reservations/mies/lists.{_format}">
+                                            <form method="" action="/auth/reservation/mylist.{_format}">
                             <fieldset class="parameters">
                                 <legend>Input</legend>
                                                                     <h4>Requirements</h4>
                                                                             <p class="tuple">
                                             <input type="text" class="key" value="request" placeholder="Key" />
                                             <span>=</span>
-                                            <input type="text" class="value" placeholder="Paramètres représentant l&#039;email de l&#039;utilisateur statut ex : {email: &#039;maximebourdel@businessdecision.com&#039;}" /> <span class="remove">-</span>
+                                            <input type="text" class="value" placeholder="Paramètres représentant le token de l&#039;utilisateur statut ex : entrezvotretoken" /> <span class="remove">-</span>
                                         </p>
                                                                             <p class="tuple">
                                             <input type="text" class="key" value="_format" placeholder="Key" />
@@ -4897,69 +6249,6 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
-                            <td>immatriculation</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>ville</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>date_premiere_immatriculation</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>date_arrivee_vehicule_bd</td>
-                            <td>DateTime</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>type_acquisition</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>nom_responsable</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>marque</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>kilometrage</td>
-                            <td>integer</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
-                            <td>derniere_revision</td>
-                            <td>string</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
                             <td>reservations[]</td>
                             <td>array of objects (Reservation)</td>
                             <td>*
@@ -4983,6 +6272,13 @@ form .request-content {
                                             <tr>
                             <td>reservations[][vehicule][id]</td>
                             <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservations[][vehicule][reservations][]</td>
+                            <td>array of objects (Reservation)</td>
                             <td>*
 </td>
                             <td></td>
@@ -5051,13 +6347,6 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
-                            <td>reservations[][vehicule][reservations][]</td>
-                            <td>array of objects (Reservation)</td>
-                            <td>*
-</td>
-                            <td></td>
-                        </tr>
-                                            <tr>
                             <td>reservations[][feedback]</td>
                             <td>object (Feedback)</td>
                             <td>*
@@ -5088,6 +6377,20 @@ form .request-content {
                                             <tr>
                             <td>reservations[][feedback][commentaires]</td>
                             <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservations[][feedback][date_creation]</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>reservations[][feedback][date_der_maj]</td>
+                            <td>DateTime</td>
                             <td>*
 </td>
                             <td></td>
@@ -5135,6 +6438,13 @@ form .request-content {
                             <td></td>
                         </tr>
                                             <tr>
+                            <td>reservations[][is_feedbackable]</td>
+                            <td>boolean</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
                             <td>reservations[][date_creation]</td>
                             <td>DateTime</td>
                             <td>*
@@ -5144,6 +6454,69 @@ form .request-content {
                                             <tr>
                             <td>reservations[][date_der_maj]</td>
                             <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>immatriculation</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>ville</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>date_premiere_immatriculation</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>date_arrivee_vehicule_bd</td>
+                            <td>DateTime</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>type_acquisition</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>nom_responsable</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>marque</td>
+                            <td>string</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>kilometrage</td>
+                            <td>integer</td>
+                            <td>*
+</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td>derniere_revision</td>
+                            <td>string</td>
                             <td>*
 </td>
                             <td></td>
@@ -5258,7 +6631,7 @@ form .request-content {
                                 </ul>
         </div>
         <p id="colophon">
-            Documentation auto-generated on Fri, 06 Oct 17 14:13:00 +0200
+            Documentation auto-generated on Mon, 23 Oct 17 13:35:18 +0200
         </p>
         <script type="text/javascript">
 

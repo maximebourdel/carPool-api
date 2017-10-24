@@ -10,21 +10,7 @@ namespace MainBundle\Repository;
  */
 class ReservationRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findSumReservationsDayByDay()
-    {
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT  
-                    cal.date
-                    , sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) nb_resa
-                FROM MainBundle:Calendrier cal, MainBundle:Reservation res
-                GROUP BY cal.date
-                HAVING sum(case when cal.date between res.dateDebut and res.dateFin then 1 else 0 end ) != 0
-                ORDER BY cal.date'
-            )
-            ->getResult();
-    }
-
+    
     public function findMyReservations($email)
     {
         return $this->getEntityManager()
