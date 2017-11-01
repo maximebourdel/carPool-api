@@ -12,5 +12,6 @@ class VehiculeAdminControllerTest extends WebTestCase
         $client->request('GET', '/admin/vehicule/all');
 
         $this->assertEquals(401, $client->getResponse()->getStatusCode());
+        
     }
 }

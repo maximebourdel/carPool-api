@@ -122,7 +122,6 @@ class Reservation
     public function setVehicule($vehicule)
     {
         $this->vehicule = $vehicule;
-
         return $this;
     }      
     

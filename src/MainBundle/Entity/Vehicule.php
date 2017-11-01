@@ -2,6 +2,8 @@
 
 namespace MainBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,6 +17,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Vehicule
 {
+    /**
+     * Constructeur initialisant un Vehicule
+     */
+    public function __construct() {
+        $this->reservations = new ArrayCollection();
+    }
+    
     /**
      * @var int
      *
@@ -103,21 +112,34 @@ class Vehicule
     }
     
     /**
+     * Retourne la liste des Réservations associées au Véhicule
+     * 
+     * @return Reservations[]
+     */
+    public function getReservations() {
+        return $this->reservations;
+    }
+    
+    /**
      * Ajouter une nouvelle Reservation
      * 
      * @param \MainBundle\Entity\Reservation $reservation
+     * @return Vehicule
      */
-    public function addVehicule(\MainBundle\Entity\Reservation $reservation)	{
+    public function addReservation(\MainBundle\Entity\Reservation $reservation)	{
         $this->reservations[] = $reservation;
+        return $this;
     }
 
     /**
      * Enlever une Reservation existante
      * 
      * @param \MainBundle\Entity\Reservation $reservation
+     * @return Vehicule
      */
-    public function removeVehicule(\MainBundle\Entity\Reservation $reservation)	{
+    public function removeReservation(\MainBundle\Entity\Reservation $reservation) {
         $this->reservations->removeElement($reservation);
+        return $this;
     }    
 
     /**
