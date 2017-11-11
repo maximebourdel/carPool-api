@@ -14,6 +14,8 @@ class WebserviceUser implements EquatableInterface, JWTUserInterface
     private $password;
     private $salt;
     private $roles;
+    private $nom;
+    private $prenom;
 
     public function __construct($username, array $roles=null )
     {
@@ -141,7 +143,6 @@ class WebserviceUser implements EquatableInterface, JWTUserInterface
         } else {
             return new self($username);
         }
-	
     }
     
 
@@ -150,19 +151,14 @@ class WebserviceUser implements EquatableInterface, JWTUserInterface
         if (!$user instanceof WebserviceUser) {
             return false;
         }
-
-        if ($this->password !== $user->getPassword()) {
+        
+        if ($this->roles !== $user->getRoles()) {
             return false;
         }
-
-        if ($this->salt !== $user->getSalt()) {
-            return false;
-        }
-
+        
         if ($this->username !== $user->getUsername()) {
             return false;
         }
-
         return true;
     }
 }
