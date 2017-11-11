@@ -78,7 +78,7 @@ class FeedbackController extends FOSRestController
         $newFeedback->setDateDerMaj(new \DateTime());
         
         //On insere puis on commit
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $em->persist($newFeedback);
         $em->flush();
         

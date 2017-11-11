@@ -59,7 +59,7 @@ class ReservationAdminController extends FOSRestController {
      */
     public function changeStatutReservationAction(Request $request)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $jsonResponse = json_decode($request->getContent(), true);
 

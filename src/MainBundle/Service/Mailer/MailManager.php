@@ -13,6 +13,10 @@ class MailManager
     private $templating;
     private $doctrine;
  
+    /**
+     * Initialise le MailManager
+     * @param ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         $this->mailer = $container->get('mailer');
@@ -23,6 +27,7 @@ class MailManager
     /**
      * Envoie le mail de demande d'annulation de l'utilisateur
      * @param Reservation $reservation
+     * @return boolean true si la fonction va jusqu à la fin
      */
     function sendMailToAdminAnnulationReservation (Reservation $reservation){
         
@@ -41,11 +46,14 @@ class MailManager
             );
         
         $this->mailer->send($message);
+        
+        return true;
     }
     
     /**
      * Envoie le mail d'envoi de réservation
      * @param Reservation $reservation
+     * @return boolean true si la fonction va jusqu à la fin
      */
     function sendMailToAdminDemandeReservation (Reservation $reservation){
         
@@ -64,11 +72,15 @@ class MailManager
             );
         
         $this->mailer->send($message);
+        
+        return true;
     }
     
     /**
      * Envoie le mail de changement de statut à l'utilisateur concernant la réservation effectué par l'admin
      * @param Reservation $reservation
+     * @return boolean true si la fonction va jusqu à la fin
+     * 
      */
     function sendMailChangementStatutReservation (Reservation $reservation){
         
@@ -86,13 +98,15 @@ class MailManager
             );
         
         $this->mailer->send($message);
+        
+        return true;
     }
 
     /**
      * Envoie un mail aux utilisateurs remplissant les conditions suivantes :
      * avoir une réservation confirmée donc la date de fin est inférieure ou égale à sysdate-1 
      * Afin qu'ils remplissent le formulaire de feedback
-     * @return Array Liste des admin ex : ['adr1','adr2']
+     * @return boolean true si la fonction va jusqu à la fin
      */
     function sendMailDemandeFeedback (Reservation $reservation){
         
@@ -110,6 +124,8 @@ class MailManager
             );
         
         $this->mailer->send($message);
+        
+        return true;
     }    
     
     /**

@@ -13,9 +13,10 @@ class LoadReservationData extends AbstractFixture implements FixtureInterface, O
     public function load(ObjectManager $manager) {
 
         $listReservation = array(
-              array('vehicule1', NULL, 'maxime.bourdel@businessdecision.com', 'BOURDEL', 'Maxime' , new \DateTime('2017/11/18'), new \DateTime('2017/11/18'), 'En cours d\'administration',0 , new \DateTime('2017/10/31 14:01:05'), new \DateTime('2017/10/18 14:01:05') )
-            , array('vehicule1', NULL, 'maxime.bourdel@businessdecision.com', 'BOURDEL', 'Maxime' , new \DateTime('2017/11/25'), new \DateTime('2017/11/29'), 'Confirmée',1 , new \DateTime('2017/11/14 14:20:55'), new \DateTime('2017/10/19 11:12:55') )                        
-            , array('vehicule1', NULL, 'maxime.bourdel@businessdecision.com', 'BOURDEL', 'Maxime' , new \DateTime('2017/10/22'), new \DateTime('2017/10/27'), 'Terminée',1 , new \DateTime('2017/10/18 18:20:55'), new \DateTime('2017/10/21 09:55:55') )            
+              array('vehicule1', NULL, 'maxime.bourdel@businessdecision.com', 'BOURDEL', 'Maxime' , new \DateTime('2017/11/18'), new \DateTime('2017/11/18'), 'En cours d\'administration', 0, new \DateTime('2017/10/31 14:01:05'), new \DateTime('2017/10/18 14:01:05') )
+            , array('vehicule1', NULL, 'maxime.bourdel@businessdecision.com', 'BOURDEL', 'Maxime' , new \DateTime('2017/11/25'), new \DateTime('2017/11/29'), 'Confirmée', 1, new \DateTime('2017/11/14 14:20:55'), new \DateTime('2017/10/19 11:12:55') )                        
+            , array('vehicule1', NULL, 'maxime.bourdel@businessdecision.com', 'BOURDEL', 'Maxime' , new \DateTime('2017/10/22'), new \DateTime('2017/10/27'), 'Confirmée', 0, new \DateTime('2017/10/12 18:20:55'), new \DateTime('2017/10/22 09:55:55') )                        
+            , array('vehicule1', NULL, 'maxime.bourdel@businessdecision.com', 'BOURDEL', 'Maxime' , new \DateTime('2017/10/22'), new \DateTime('2017/10/27'), 'Terminée', 1, new \DateTime('2017/10/18 18:20:55'), new \DateTime('2017/10/21 09:55:55') )            
 
         );
         

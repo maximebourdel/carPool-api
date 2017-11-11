@@ -120,7 +120,7 @@ class ReservationController extends FOSRestController
      */
     public function putCancelReservationAction(Request $request)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $jsonResponse = json_decode($request->getContent(), true);
 
@@ -186,8 +186,8 @@ class ReservationController extends FOSRestController
     public function createReservationAction(Request $request)
     {
         //Initialisation du Serializer
-        $encoder = new JsonEncoder();
         $normalizer = new BoardNormalizer();
+        $encoder = new JsonEncoder();
         $serializer = new Serializer([$normalizer], [$encoder]);
         
         //Cree la reservation a partir de la response 
@@ -212,7 +212,7 @@ class ReservationController extends FOSRestController
         $newReservation->setDateDerMaj(new \DateTime());
         
         //On insere puis on commit
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $em->persist($newReservation);
         $em->flush();
         

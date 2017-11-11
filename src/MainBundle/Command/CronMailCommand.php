@@ -35,7 +35,7 @@ class CronMailCommand extends ContainerAwareCommand
     {
         $doctrine = $this->getContainer()->get('doctrine');
         $reservations = $doctrine->getRepository('MainBundle:Reservation')
-                    ->findNotRatedFinishedReservations();
+                    ->findFeedbackableReservations();
         //Commentaire
         $output->writeln([
             '============',
@@ -49,7 +49,7 @@ class CronMailCommand extends ContainerAwareCommand
             //et que l'utilisateur aie le droit de replir sont feedback
             $reservation->setIsFeedbackable(true);
             //On commit
-            $doctrine->getEntityManager()->flush();
+            $doctrine->getManager()->flush();
         }
         $output->writeln([
             'Envoi des emails terminé',

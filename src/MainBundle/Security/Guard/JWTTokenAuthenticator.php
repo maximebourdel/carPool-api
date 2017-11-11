@@ -62,7 +62,6 @@ class JWTTokenAuthenticator extends BaseAuthenticator
         $username = $credentials['username'];
         return $userProvider->loadUserByUsername($username);
     }
-    
 
     /**
      * Etape 3
@@ -102,7 +101,7 @@ class JWTTokenAuthenticator extends BaseAuthenticator
             return true;
         }
         
-        //Mauvaises infos (email ou mdp)
+        //Mauvaises authentification (email ou mdp)
         throw new BadCredentialsException();
     }
     
@@ -118,7 +117,6 @@ class JWTTokenAuthenticator extends BaseAuthenticator
     {
         return new JWTUserToken(['ROLE_USER'], $user);
     }
-    
     
     /**
      * Appel à l'API Kayoo
@@ -141,5 +139,4 @@ class JWTTokenAuthenticator extends BaseAuthenticator
         
         return json_decode($response, true);
     }
-    
 }
